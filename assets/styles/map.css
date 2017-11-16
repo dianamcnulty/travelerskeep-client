@@ -1,7 +1,9 @@
-svg {
-    touch-action: none;
-}
 
+svg {
+  background: url("parchment-bg.png");
+  /*#c3dbd1;*/
+  touch-action: none;
+}
 .jvectormap-container {
     width: 100%;
     height: 100%;
@@ -14,9 +16,8 @@ svg {
     position: absolute;
     display: none;
     border: solid 1px #CDCDCD;
-    border-radius: 3px;
-    background: #292929;
-    color: white;
+    background: #92a050;
+    color: black;
     font-family: sans-serif, Verdana;
     font-size: smaller;
     padding: 3px;
@@ -26,9 +27,9 @@ svg {
     position: absolute;
     left: 10px;
     border-radius: 3px;
-    background: #292929;
+    background: #92a050;
     padding: 3px;
-    color: white;
+    color: black;
     cursor: pointer;
     line-height: 10px;
     text-align: center;
