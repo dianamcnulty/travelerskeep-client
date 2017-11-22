@@ -1,14 +1,18 @@
 'use strict'
-
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const map = require('./map')
+const authevents = require('./auth/authevents')
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
 $(map)
+$(() => {
+  authevents.clickHandlers()
+  // view.preLogInView()
+})
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 

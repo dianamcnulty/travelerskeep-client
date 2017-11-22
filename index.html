@@ -12,6 +12,25 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <div id="world-map" style="width: auto; height: 400px">os this rendering?</div>
+      <section id='auth'>
+        <!--log in forms-->
+        <h3 id='signupmessage'></h3>
+        <form id='log-in'>
+          <h3 id='loginmessage'>Log in</h3>
+          <input class='login' name="credentials[email]" type='text' placeholder="username">
+          <input class='login' name="credentials[password]" type="password" placeholder="password">
+          <button type='submit'>log in</button>
+        </form>
+        <h4 id='sign-up-link'>Don't have a username yet? <a>Please Sign Up!</a></h4>
+        <form id='sign-up'>
+          <h3>First time here?</h3><h4> Pick a username and Password to sign up</h4>
+          <input class='login' name="credentials[email]" type='text' placeholder="username">
+          <input class='login' name="credentials[password]" type="password" placeholder="password">
+          <input class='login' name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+          <button type='submit'>Sign Up</button>
+        </form>
+      </section>
+      <p id="section-alerts" class='alert'></p>
+      <!-- <div id="world-map" style="width: auto; height: 400px">os this rendering?</div> -->
     </body>
 </html>
