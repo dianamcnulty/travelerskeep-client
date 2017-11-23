@@ -1,25 +1,27 @@
 const store = require('../store')
 const view = require('../nav/views.js')
 const mapTemplate = require('../templates/mapview.handlebars')
-//const map = require('./map')
+// const map = require('./map')
 
-const signUpSuccess = function (data) {
-  // console.log('signed up successfully', store)
-  $('#section-alerts').css('color', '#546819')
-  $('#section-alerts').text('Thanks for signing up! Enter your new user name and password to log in.')
-  $('#auth-error').hide()
-  $('#sign-up').hide()
-  $('#loginmessage').hide()
-  $('.login').val('')
-  // console.log(data)
-}
+// const signUpSuccess = function (data) {
+//   // console.log('signed up successfully', store)
+//   $('#section-alerts').css('color', '#546819')
+//   $('#section-alerts').text('Thanks for signing up! Enter your new user name and password to log in.')
+//   $('#auth-error').hide()
+//   $('#sign-up').hide()
+//   $('#loginmessage').hide()
+//   $('.login').val('')
+//   // console.log(data)
+// }
 const signUpFail = function () {
-  $('#auth-error').hide()
-  $('#auth-error').fadeIn(200)
+  $('#section-alerts').hide()
+  $('#section-alerts').text('Sorry, there was an issue signing up. Please try again.')
+  $('#section-alerts').fadeIn(200)
 }
 const logInFail = function () {
-  $('#auth-error').hide()
-  $('#auth-error').fadeIn(200)
+  $('#section-alerts').hide()
+  $('#section-alerts').text('Sorry, sign in failed. Please try again.')
+  $('#section-alerts').fadeIn(200)
   $('.login').val('')
 }
 const logInSuccess = function (data) {
@@ -28,8 +30,7 @@ const logInSuccess = function (data) {
   $('.login').val('')
   const showMapView = mapTemplate(/* { flights: data.flights } */)
   $('#content-container').html(showMapView)
-  //$(map)
-
+  // $(map)
 }
 const logOutSuccess = function (data) {
   store.user = null
@@ -52,7 +53,7 @@ const passwordFail = function () {
   $('#section-alerts').fadeIn(200)
 }
 module.exports = {
-  signUpSuccess,
+  // signUpSuccess,
   signUpFail,
   logInSuccess,
   logOutSuccess,
