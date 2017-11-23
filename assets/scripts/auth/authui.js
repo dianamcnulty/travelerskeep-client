@@ -14,12 +14,14 @@ const mapTemplate = require('../templates/mapview.handlebars')
 //   // console.log(data)
 // }
 const signUpFail = function () {
-  $('#auth-error').hide()
-  $('#auth-error').fadeIn(200)
+  $('#section-alerts').hide()
+  $('#section-alerts').text('Sorry, there was an issue signing up. Please try again.')
+  $('#section-alerts').fadeIn(200)
 }
 const logInFail = function () {
-  $('#auth-error').hide()
-  $('#auth-error').fadeIn(200)
+  $('#section-alerts').hide()
+  $('#section-alerts').text('Sorry, sign in failed. Please try again.')
+  $('#section-alerts').fadeIn(200)
   $('.login').val('')
 }
 const logInSuccess = function (data) {
