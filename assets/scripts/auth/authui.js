@@ -1,5 +1,7 @@
 const store = require('../store')
 const view = require('../nav/views.js')
+const mapTemplate = require('../templates/mapview.handlebars')
+//const map = require('./map')
 
 const signUpSuccess = function (data) {
   // console.log('signed up successfully', store)
@@ -23,8 +25,11 @@ const logInFail = function () {
 const logInSuccess = function (data) {
   console.log('log in success')
   store.user = data.user
-  view.landingView()
   $('.login').val('')
+  const showMapView = mapTemplate(/* { flights: data.flights } */)
+  $('#content-container').html(showMapView)
+  //$(map)
+
 }
 const logOutSuccess = function (data) {
   store.user = null

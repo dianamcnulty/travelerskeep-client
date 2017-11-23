@@ -30,13 +30,13 @@ const passwordBehavior = function (event) {
     .catch(authui.passwordFail)
 }
 const clickHandlers = function () {
-  $('#sign-up').on('submit', signUpBehavior)
-  $('#log-in').on('submit', logInBehavior)
-  $('#logout').on('click', logOutBehavior)
-  $('#password-update').on('submit', passwordBehavior)
-  $('#sign-up-link').on('click', () => {
+  $(document).on('submit', '#sign-up', signUpBehavior)
+  $(document).on('submit', '#log-in', logInBehavior)
+  $(document).on('click', '#logout', logOutBehavior)
+  $(document).on('submit', '#password-update', passwordBehavior)
+  $(document).on('click', '#sign-up-link', () => {
     $('#sign-up-link').hide()
-    $('#auth-error').hide()
+    $('#auth-error').text('')
     $('#sign-up').show()
   })
 }
