@@ -3,12 +3,14 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authevents = require('./auth/authevents')
 const loginTemplate = require('./templates/login.handlebars')
+const map = require('./map-view/map')
 // const views = require('./nav/views.js')
 $(() => {
   setAPIOrigin(location, config)
 })
-
+$(map)
 $(() => {
+  $('#map-view').hide()
   authevents.clickHandlers()
   $('#content-container').html(loginTemplate())
   $('#sign-up').hide()
