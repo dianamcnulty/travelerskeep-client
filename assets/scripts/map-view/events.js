@@ -1,10 +1,15 @@
 'use strict'
 const newVacationTemplate = require('../templates/addVacation.handlebars')
+const countryAPI = require('../API/country-api')
 
 const goToNewVacation = function (event) {
   console.log('pressed the add adventure button')
-  $('#map-view').hide()
-  $('#content-container').html(newVacationTemplate())
+  countryAPI.getAllCountries()
+    .then((countries) => {
+      console.log('countries', countries)
+      $('#map-view').hide()
+      $('#content-container').html(newVacationTemplate(countries))
+    })
 }
 const goToCountry = function (event) {
   event.preventDefault()

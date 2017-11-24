@@ -1,7 +1,11 @@
 <h3>Add Your Adventure to Your Collection</h3>
 <form id='add-vacation-form'>
   <label>Country</label>
-  <input class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
+  <select class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
+  {{#each countries as |country|}}
+  <option value="{{country.name}}">{{country.name}}</option>
+  {{/each}}
+</select>
   <label>State</label>
   <input class='add-input' type='text' name='vacation[state]' placeholder="State">
   <label>Month</label>
