@@ -5,6 +5,7 @@ const authEvents = require('./auth/authevents')
 const loginTemplate = require('./templates/login.handlebars')
 const map = require('./map-view/map')
 const mapEvents = require('./map-view/events')
+const createVacationEvents = require('./add-vacation/events')
 // const views = require('./nav/views.js')
 $(() => {
   setAPIOrigin(location, config)
@@ -19,4 +20,5 @@ $(() => {
 $(() => {
   authEvents.clickHandlers()
   mapEvents.mapViewHandlers()
+  createVacationEvents.newVacationHandlers()
 })

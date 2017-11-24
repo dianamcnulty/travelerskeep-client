@@ -3,7 +3,8 @@ const store = require('../store')
 
 // pass in "data" to form
 // when ajax is called set data first with this: const data = getFormFields(this)
-const newVacationRequest = function (data) {
+const createVacation = function (data) {
+  console.log('ajax call runs')
   return $.ajax({
     url: config.apiOrigin + '/vacations',
     method: 'POST',
@@ -53,7 +54,7 @@ const deleteVacation = function (id) {
   })
 }
 module.exports = {
-  newVacationRequest,
+  createVacation,
   getAllVacations,
   getOneVacation,
   updateVacationRequest,
