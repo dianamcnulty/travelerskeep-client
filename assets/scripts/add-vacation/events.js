@@ -1,7 +1,7 @@
 'use strict'
 const getFormFields = require(`../../../lib/get-form-fields`)
 const vacationAPI = require('../API/vacation-api')
-const map = require ('../map-view/map')
+const map = require('../map-view/map')
 
 const onCreateVacation = function (event) {
   event.preventDefault()
