@@ -8,9 +8,8 @@ const renderMap = function () {
   const countriesVisited = {}
   vacationAPI.getAllVacations()
     .then(response => {
-      console.log('response is', response)
       response.vacations.forEach((vacation) => {
-        console.log('each vacation', vacation)
+        $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.country + ', ' + vacation.year + '</option>')
         countriesVisited[vacation.country] = vacation.year
       })
       $('#show-world').hide()
@@ -34,7 +33,7 @@ const renderMap = function () {
           }
         }
       })
-  })
+    })
 }
 // $(() => {
 //   $('.jvectormap-region').on('click', (e) => {
