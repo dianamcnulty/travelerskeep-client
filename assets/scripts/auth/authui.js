@@ -30,6 +30,7 @@ const logInSuccess = function (data) {
   $('.login').val('')
   $('#content-container').html('')
   $('#map-view').show()
+  $('#logout').show()
 }
 const logOutSuccess = function (data) {
   store.user = null
@@ -38,6 +39,7 @@ const logOutSuccess = function (data) {
   $('#map-view').hide()
   $('#content-container').html(loginTemplate())
   $('#sign-up').hide()
+  $('#logout').hide()
 }
 const passwordSuccess = function (data) {
   // console.log('password changed successfully')
