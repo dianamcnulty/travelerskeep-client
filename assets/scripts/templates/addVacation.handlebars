@@ -2,16 +2,33 @@
 <form id='add-vacation-form'>
   <label>Country</label>
   <select class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
-  {{#each countries as |country|}}
+  {{#each places.nations.countries as |country|}}
   <option value="{{country.name}}">{{country.name}}</option>
   {{/each}}
 </select>
-  <label>State</label>
-  <input class='add-input' type='text' name='vacation[state]' placeholder="State">
+  <label>State (if USA)</label>
+  <select class='add-input' type='text' name='vacation[state]' placeholder="State">
+    {{#each places.states}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
   <label>Month</label>
-  <input class='add-input' type='text' name='vacation[month]' placeholder='Month'>
+  <select class='add-input' type='text' name='vacation[month]' placeholder='Month'>
+    <option>January</option>
+    <option>February</option>
+    <option>March</option>
+    <option>April</option>
+    <option>May</option>
+    <option>June</option>
+    <option>July</option>
+    <option>August</option>
+    <option>September</option>
+    <option>October</option>
+    <option>November</option>
+    <option>December</option>
+  </select>
   <label>Year</label>
-  <input class='add-input' type="text" name="vacation[year]" placeholder="Year">
+  <input class='add-input' type="number" name="vacation[year]" placeholder="Year" min=1900 max=2100>
   <label>Companions</label>
   <input class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions'>
   <br>
