@@ -1,5 +1,6 @@
 const store = require('../store')
-const view = require('../nav/views.js')
+// const view = require('../nav/views.js')
+const loginTemplate = require('../templates/login.handlebars')
 // const mapTemplate = require('../templates/mapview.handlebars')
 
 // const signUpSuccess = function (data) {
@@ -32,9 +33,11 @@ const logInSuccess = function (data) {
 }
 const logOutSuccess = function (data) {
   store.user = null
-  // console.log('logged out successfully')
+  console.log('logged out successfully')
   $('#signupmessage').text('')
-  view.preLogInView()
+  $('#map-view').hide()
+  $('#content-container').html(loginTemplate())
+  $('#sign-up').hide()
 }
 const passwordSuccess = function (data) {
   // console.log('password changed successfully')
