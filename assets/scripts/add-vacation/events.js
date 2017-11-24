@@ -9,9 +9,15 @@ const onCreateVacation = function (event) {
     .then((response) => console.log('success!'))
     .catch((response) => console.log('fail!'))
 }
-
+const backToMap = function () {
+  console.log('cancel button clicked')
+  $('#content-container').html('')
+  $('#map-view').show()
+}
 const newVacationHandlers = function () {
+  $('.add-input').val('')
   $(document).on('submit', '#add-vacation-form', onCreateVacation)
+  $(document).on('click', '#cancel-new-vacation', backToMap)
 }
 module.exports = {
   newVacationHandlers

@@ -1,20 +1,20 @@
 <h3>Add Your Adventure to Your Collection</h3>
 <form id='add-vacation-form'>
   <label>Country</label>
-  <input type='text' required='true' name='vacation[country]' placeholder="Country">
+  <input class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
   <label>State</label>
-  <input type='text' name='vacation[state]' placeholder="State">
+  <input class='add-input' type='text' name='vacation[state]' placeholder="State">
   <label>Month</label>
-  <input type='text' name='vacation[month]' placeholder='Month'>
+  <input class='add-input' type='text' name='vacation[month]' placeholder='Month'>
   <label>Year</label>
-  <input type="text" name="vacation[year]" placeholder="Year">
+  <input class='add-input' type="text" name="vacation[year]" placeholder="Year">
   <label>Companions</label>
-  <input type='text' name='vacation[companions]' placeholder='Travel Companions'>
+  <input class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions'>
   <br>
   <br>
   <button>Add a Photo</button>
   <button>Add a Story</button>
   <br>
-  <button>Cancel</button>
-  <button type='submit'>Save</button>
+  <input type="button" id='cancel-new-vacation' value="Cancel">
+  <input type='submit' value='save'>
 </form>
