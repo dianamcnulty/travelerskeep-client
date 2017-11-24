@@ -10,7 +10,7 @@ const createVacationEvents = require('./add-vacation/events')
 $(() => {
   setAPIOrigin(location, config)
 })
-$(map)
+//map.renderMap()
 $(() => {
   $('#map-view').hide()
   $('#content-container').html(loginTemplate())

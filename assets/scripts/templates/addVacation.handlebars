@@ -1,19 +1,22 @@
 <h3>Add Your Adventure to Your Collection</h3>
 <form id='add-vacation-form'>
-  <label>Country</label>
+  <label>Country *</label>
   <select class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
+    <option selected disabled>Select a Country</option>
   {{#each places.nations.countries as |country|}}
   <option value="{{country.name}}">{{country.name}}</option>
   {{/each}}
 </select>
   <label>State (if USA)</label>
   <select class='add-input' type='text' name='vacation[state]' placeholder="State">
+    <option></option>
     {{#each places.states}}
     <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
   <label>Month</label>
-  <select class='add-input' type='text' name='vacation[month]' placeholder='Month'>
+  <select class='add-input' type='text' name='vacation[month]' placeholder='Month' value=''>
+    <option></option>
     <option>January</option>
     <option>February</option>
     <option>March</option>
@@ -27,7 +30,7 @@
     <option>November</option>
     <option>December</option>
   </select>
-  <label>Year</label>
+  <label>Year *</label>
   <input class='add-input' type="number" name="vacation[year]" placeholder="Year" min=1900 max=2100>
   <label>Companions</label>
   <input class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions'>

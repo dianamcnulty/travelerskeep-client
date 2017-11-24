@@ -1,6 +1,8 @@
 const store = require('../store')
 // const view = require('../nav/views.js')
 const loginTemplate = require('../templates/login.handlebars')
+const mapEvents = require('../map-view/events')
+const map = require('../map-view/map')
 // const mapTemplate = require('../templates/mapview.handlebars')
 
 // const signUpSuccess = function (data) {
@@ -29,6 +31,7 @@ const logInSuccess = function (data) {
   store.user = data.user
   $('.login').val('')
   $('#content-container').html('')
+  map.renderMap()
   $('#map-view').show()
   $('#logout').show()
 }
