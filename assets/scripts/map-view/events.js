@@ -1,7 +1,10 @@
 'use strict'
+const newVacationTemplate = require('../templates/addVacation.handlebars')
 
-const goToAddVacation = function (event) {
+const goToNewVacation = function (event) {
   console.log('pressed the add adventure button')
+  $('#map-view').hide()
+  $('#content-container').html(newVacationTemplate())
 }
 const goToCountry = function (event) {
   event.preventDefault()
@@ -9,7 +12,7 @@ const goToCountry = function (event) {
 }
 
 const mapViewHandlers = function () {
-  $(document).on('click', '#add-vacation', goToAddVacation)
+  $(document).on('click', '#add-vacation', goToNewVacation)
   $(document).on('submit', '#select-country', goToCountry)
 }
 
