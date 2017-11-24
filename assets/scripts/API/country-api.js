@@ -1,5 +1,5 @@
 const config = require('../config')
-const store = require('../store')
+// const store = require('../store')
 
 // pass in "data" to form
 // when ajax is called set data first with this: const data = getFormFields(this)
@@ -7,7 +7,7 @@ const store = require('../store')
 const getAllCountries = function () {
   return $.ajax({
     url: config.apiOrigin + '/countries',
-    method: 'GET',
+    method: 'GET'
     // headers: {
     //   Authorization: 'Token token=' + store.user.token
     // }
@@ -16,10 +16,10 @@ const getAllCountries = function () {
 const getOneCountry = function (id) {
   return $.ajax({
     url: config.apiOrigin + '/countries/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
+    // headers: {
+    //   Authorization: 'Token token=' + store.user.token
+    // }
   })
 }
 
