@@ -1,9 +1,11 @@
 
+
 svg {
-  /*background: url("parchment-bg.png");*/
-  /*#c3dbd1;*/
+  /*background-image: url('https://github.com/dianamcnulty/travelerskeep-client/blob/development/assets/images/parchment-bg.png?raw=true');*/
   touch-action: none;
+  padding:5px;
 }
+
 .jvectormap-container {
     width: 100%;
     height: 100%;
