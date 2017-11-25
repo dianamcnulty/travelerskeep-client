@@ -1,0 +1,26 @@
+<h2>Include Stories and Photos</h2>
+<!-- add Photo -->
+<h3>Add Photos From Your Journey!</h3>
+<div id='photo-container'></div>
+<button id='save-photo'>Include a Photo</button>
+<hr>
+<!-- add Story -->
+<h3>Add Stories About Your Adventures!</h3>
+<div id='story-container'></div>
+<form id='add-story'>
+  <input type='hidden' name='story[vacation_id]' value={{vacation.id}}>
+  <label>Title</label><br>
+  <input id='story-title-field' type=text name=story[title]><br>
+  <label>Content</label><br>
+  <textarea id='story-content-field' type=text name=story[content] rows="10" cols="50"></textarea><br>
+  <button type='submit' type="button">
+  Add Story
+  </button>
+</form>
+<hr>
+<button id='skip' type="button">
+Skip This Part
+</button>
+<button id='done' type="button">
+Done
+</button>
