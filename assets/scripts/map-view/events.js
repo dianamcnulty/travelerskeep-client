@@ -36,28 +36,42 @@ const onSelectRegion = function (e) {
   const selectedRegion = e.target.dataset.code
   vacationAPI.getAllVacations()
     .then((response) => {
-      const matching = []
-      response.vacations.forEach((el) => {
-        if (el.country === selectedRegion) {
-          matching.push(el)
+      console.log(response)
+      if (selectedRegion === 'United States') {
+        const statesVisited = {}
+        const vacations = response.vacations
+        vacations.forEach(vacation => {
+          if (vacation.state) {
+            if (!statesVisited[vacation.state]) {
+              statesVisited[vacation.state] = [vacation.year]
+            } else {
+              statesVisited[vacation.state].push(vacation.year)
+            }
+          }
+        })
+        console.log('statesVisited is', statesVisited)
+        map.showUS(statesVisited)
+      } else {
+        const matching = []
+        response.vacations.forEach((el) => {
+          if (el.country === selectedRegion) {
+            matching.push(el)
+          }
+        })
+        if (matching.length === 0) {
+          goToNewVacation()
+        } else if (matching.length === 1) {
+          console.log('matching is', matching)
+          vacationAPI.getOneVacation(matching[0].id)
+            .then(vacation => {
+              console.log('vacation is', vacation)
+              $('#map-view').hide()
+              $('#content-container').html(contentTemplate(vacation))
+            })
         }
-      })
-      if (matching.length === 0) {
-        goToNewVacation()
-      } else if (matching.length === 1) {
-        console.log('matching is', matching)
-        vacationAPI.getOneVacation(matching[0].id)
-          .then(vacation => {
-            console.log('vacation is', vacation)
-            $('#map-view').hide()
-            $('#content-container').html(contentTemplate(vacation))
-          })
+        console.log('matching trips are', matching)
       }
-      console.log('matching trips are', matching)
     })
-  // if (e.target.dataset.code === 'United States') {
-  //   showUS()
-  // }
 }
 const mapViewHandlers = function () {
   $(document).on('click', '#add-vacation', goToNewVacation)
