@@ -15,7 +15,7 @@ $(() => {
   $('#map-view').hide()
   $('#content-container').html(loginTemplate())
   $('#sign-up').hide()
-  $('#logout').hide()
+  $('#nav').hide()
 })
 $(() => {
   authEvents.clickHandlers()
