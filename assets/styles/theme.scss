@@ -1,6 +1,20 @@
-/*body {
+body {
   background: #b5d3d9;
-}*/
+}
+.title{
+  display: inline-block;
+}
+.navbar {
+  background: rgba(0, 0, 0, 0.0);
+  display:inline-block;
+  float:right;
+  position:relative;
+  top:20px;
+  margin-bottom: 0;
+}
+.navbar-toggle {
+  margin:auto;
+}
 // button {
 //   background: rgba(225, 244, 244, 0.0);
 //   border: 2px dashed #937455;

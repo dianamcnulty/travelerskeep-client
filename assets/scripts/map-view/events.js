@@ -6,7 +6,7 @@ const vacationAPI = require('../API/vacation-api')
 const contentTemplate = require('../templates/content.handlebars')
 
 const goToNewVacation = function (event) {
-  const states =  ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]
+  const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
   countryAPI.getAllCountries()
     .then((countries) => {
       $('#map-view').hide()
@@ -25,8 +25,16 @@ const goToCountry = function (event) {
       $('#content-container').html(contentTemplate(vacation))
     })
 }
+const backToMap = function () {
+  console.log('cancel button clicked')
+  $('#content-container').html('')
+  $('#world-map').html('')
+  map.renderMap()
+  $('#map-view').show()
+}
 const mapViewHandlers = function () {
   $(document).on('click', '#add-vacation', goToNewVacation)
+  $('#map-nav').on('click', backToMap)
   $(document).on('submit', '#select-country', goToCountry)
   $(document).on('click', '.jvectormap-region', (e) => {
     console.log('country code is', e.target.dataset.code)
@@ -37,5 +45,6 @@ const mapViewHandlers = function () {
 }
 
 module.exports = {
-  mapViewHandlers
+  mapViewHandlers,
+  backToMap
 }

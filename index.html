@@ -12,12 +12,32 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Travelers Keep</h1>
-      <a id='logout'>log-out</a>
+      <header>
+        <h1 class='title'>Travelers Keep</h1>
+        <nav id="nav" class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed border" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <!-- <div id="navbar-header" class="navbar-brand"></div> -->
+            </div>
+            <div  class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a id='logout-nav' class = "nav-link">sign out</a></li>
+                <li><a id="map-nav" class = "nav-link">map</a></li>
+                <li><a id="password-nav" class = "nav-link">password</a></li>
+              </ul>
+            </div>
+          </div>
+          </nav>
+        </header>
       <p id="section-alerts" class='alert'></p>
       <div id='content-container'></div>
       <section id='map-view'>
-
           <p>Some quote about adventure or something</p>
           <button id='add-vacation'>Add an Adventure</button>
         <div id="world-map" style="width: auto; height: 400px;"></div>
