@@ -11,7 +11,11 @@ const renderMap = function () {
       $('#vacation-dropdown').html('')
       response.vacations.forEach((vacation) => {
         $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.country + ', ' + vacation.year + '</option>')
-        countriesVisited[vacation.country] = vacation.year
+        if (!countriesVisited[vacation.country]) {
+          countriesVisited[vacation.country] = [vacation.year]
+        } else {
+          countriesVisited[vacation.country].push(vacation.year)
+        }
       })
       $('#show-world').hide()
       $('#world-map').vectorMap({
@@ -27,10 +31,13 @@ const renderMap = function () {
           }]
         },
         onRegionTipShow: function (e, el, year) {
-          if (countriesVisited[year] > 0) {
-            el.html('You were last in ' + el.html() + ' in ' + countriesVisited[year])
-          } else {
-            el.html(el.html() + ' is calling to you!')
+          if (!countriesVisited[year]) {
+            el.html('Have you been to ' + el.html() + '? Click to add your memories to your collection.')
+          } else if (countriesVisited[year].length === 1) {
+            el.html('You were in ' + el.html() + ' in ' + countriesVisited[year].toString() + ' Click to see your trip')
+            // console.log('visited is', e.target.dataset.visited)
+          } else if (countriesVisited[year].length > 1) {
+            el.html('You have been to ' + el.html() + ' several times! To see trips to ' + el.html() + ' select a specific trip from the dropdown below.')
           }
         }
       })
