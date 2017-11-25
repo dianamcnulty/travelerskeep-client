@@ -5,9 +5,11 @@ const mapEvents = require('../map-view/events')
 const storyPhotoTemplate = require('../templates/add-story-photo.handlebars')
 
 const deleteVacation = function (event) {
-  const vacationId = event.target.dataset.id
+  const vacationId = $('#delete-vacation-btn').attr('data-id')
+  console.log('vacation id is', vacationId)
   vacationAPI.deleteVacation(vacationId)
     .then((response) => {
+      $('#delete-vacation-modal').modal('hide')
       mapEvents.backToMap()
       $('#section-alerts').text('Trip was successfully deleted.')
       $('#section-alerts').show()
@@ -32,7 +34,7 @@ const goToStoryPhotos = function (event) {
   $('#content-container').html(storyPhotoTemplate(vacation))
 }
 const contentViewHandlers = function () {
-  $(document).on('click', '#delete-vacation-btn', deleteVacation)
+  $(document).on('click', '#delete-vacation-cnfrm', deleteVacation)
   $(document).on('click', '#update-vacation-btn', updateVacation)
   $(document).on('click', '.story-link', showStory)
   $(document).on('click', '#add-story-photo', goToStoryPhotos)

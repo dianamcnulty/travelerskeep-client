@@ -48,5 +48,25 @@
           <button type=submit>Go!</button>
         </form>
       </section>
+      <!-- delete modal-->
+      <div class="modal fade" id="delete-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="deleteModalLabel">Delete your Adventure?</h3>
+              <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id='delete-modal-alert'>Are you sure you want to delete this Adventure? All photos and stories associated with this trip will also be removed!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn  nevermind" data-dismiss="modal">Nevermind.</button>
+              <button id='delete-vacation-cnfrm' type="button" class="btn" data-dismiss="modal">Delete it!</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
