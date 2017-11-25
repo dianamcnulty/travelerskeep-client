@@ -8,6 +8,7 @@ const renderMap = function () {
   const countriesVisited = {}
   vacationAPI.getAllVacations()
     .then(response => {
+      $('#vacation-dropdown').html('')
       response.vacations.forEach((vacation) => {
         $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.country + ', ' + vacation.year + '</option>')
         countriesVisited[vacation.country] = vacation.year

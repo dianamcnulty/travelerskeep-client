@@ -26,5 +26,6 @@ const newVacationHandlers = function () {
   $(document).on('click', '#cancel-new-vacation', backToMap)
 }
 module.exports = {
-  newVacationHandlers
+  newVacationHandlers,
+  backToMap
 }
