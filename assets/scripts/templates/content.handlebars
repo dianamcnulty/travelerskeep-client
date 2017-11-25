@@ -1,22 +1,33 @@
-<h3>{{vacation.country}}</h3>
-<div id='carousel-container'> placeholder for photo carousel</div>
-<div id='highlighted-content'>placeholder for Highlighted stories/photos
-  <p>image caption goes here</p>
+<div>
+  <h3>{{vacation.country}}</h3>
+  <div id='carousel-container'> placeholder for photo carousel</div>
+  <section>
+    <div class='feature' id='highlighted-content'>
+      <span>placeholder for Highlighted stories/photos</span>
+      <p>image caption goes here</p>
+    </div>
+  </section>
+    <!-- show this section for all trips to this country-->
+    <section class='story-list'>
+      <div id='vacation-description'>
+      <h5>{{vacation.year}}</h5>
+      {{#if vacation.companions}}
+      <p>You traveled here with {{vacation.companions}}</p>
+      {{/if}}
+      </div>
+      {{#if vacation.stories}}
+      <div id='stories-container'>
+        <h5>Stories</h5>
+        <!-- show bulleted list of stories for each story -->
+        <ul>
+          {{#each vacation.stories as |story|}}
+          <li><a class='story-link' data-id={{story.id}}>{{story.title}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+      <button id='add-story-photo' data-id='{{vacation.id}}'>Add Stories and Photos</button>
+      <button id='update-vacation-btn' data-id='{{vacation.id}}'>Edit Trip Details</button>
+      <button id='delete-vacation-btn' data-id="{{vacation.id}}" type="button" data-toggle="modal" data-target="#delete-vacation-modal">Delete Trip</button>
+    </section>
 </div>
-  <!-- show this section for all trips to this country-->
-<div id='vacation-description'>
-<h5>{{vacation.year}}</h5>
-{{#if vacation.companions}}
-<p>You traveled here with {{vacation.companions}}</p>
-{{/if}}
-</div>
-<div id='stories-container'>
-  <h5>Stories</h5>
-  <!-- show bulleted list of stories for each story -->
-  <ul>
-    {{#each vacation.stories as |story|}}
-    <li><a class='story-link' data-id={{story.id}}>{{story.title}}</a></li>
-    {{/each}}
-  </ul>
-</div>
-<button id='delete-vacation-btn' data-id='{{vacation.id}}'>Delete Trip</button>
