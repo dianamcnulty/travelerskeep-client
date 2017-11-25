@@ -2,36 +2,40 @@
 require('../../jvectormap/jquery-jvectormap-world-mill.js')
 require('../../jvectormap/jquery-jvectormap-2.0.3.min.js')
 require('jquery')
+const vacationAPI = require('../API/vacation-api')
 
-const countriesVisited = {
-  'JP': 1972,
-  'BO': 2006,
-  'DZ': 2015
+const renderMap = function () {
+  const countriesVisited = {}
+  vacationAPI.getAllVacations()
+    .then(response => {
+      $('#vacation-dropdown').html('')
+      response.vacations.forEach((vacation) => {
+        $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.country + ', ' + vacation.year + '</option>')
+        countriesVisited[vacation.country] = vacation.year
+      })
+      $('#show-world').hide()
+      $('#world-map').vectorMap({
+        map: 'world_mill',
+        series: {
+          regions: [{
+            values: countriesVisited,
+            scale: ['#8e6f4d', '#be6a2b'],
+            attribute: 'fill',
+            normalizeFunction: 'linear',
+            min: 0,
+            Max: 1
+          }]
+        },
+        onRegionTipShow: function (e, el, year) {
+          if (countriesVisited[year] > 0) {
+            el.html('You were last in ' + el.html() + ' in ' + countriesVisited[year])
+          } else {
+            el.html(el.html() + ' is calling to you!')
+          }
+        }
+      })
+    })
 }
-$(function () {
-  $('#show-world').hide()
-  $('#world-map').vectorMap({
-    map: 'world_mill',
-    series: {
-      regions: [{
-        values: countriesVisited,
-        scale: ['#8e6f4d', '#be6a2b'],
-        // scale: ['#ffffff', '#889955'],
-        attribute: 'fill',
-        normalizeFunction: 'linear',
-        min: 0,
-        Max: 1
-      }]
-    },
-    onRegionTipShow: function (e, el, code) {
-      if (countriesVisited[code] > 0) {
-        el.html('You were last in ' + el.html() + ' in ' + countriesVisited[code])
-      } else {
-        el.html(el.html() + ' is calling to you!')
-      }
-    }
-  })
-})
 // $(() => {
 //   $('.jvectormap-region').on('click', (e) => {
 //     console.log('country code is', e.target.dataset.code)
@@ -71,3 +75,4 @@ $(function () {
 //   $('#show-world').show()
 //   $('#world-map').hide()
 // }
+module.exports = {renderMap}

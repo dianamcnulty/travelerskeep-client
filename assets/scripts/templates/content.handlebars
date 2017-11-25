@@ -1,0 +1,22 @@
+<h3>{{vacation.country}}</h3>
+<div id='carousel-container'> placeholder for photo carousel</div>
+<div id='highlighted-content'>placeholder for Highlighted stories/photos
+  <p>image caption goes here</p>
+</div>
+  <!-- show this section for all trips to this country-->
+<div id='vacation-description'>
+<h5>{{vacation.year}}</h5>
+{{#if vacation.companions}}
+<p>You traveled here with {{vacation.companions}}</p>
+{{/if}}
+</div>
+<div id='stories-container'>
+  <h5>Stories</h5>
+  <!-- show bulleted list of stories for each story -->
+  <ul>
+    {{#each vacation.stories as |story|}}
+    <li><a class='story-link' data-id={{story.id}}>{{story.title}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+<button id='delete-vacation-btn' data-id='{{vacation.id}}'>Delete Trip</button>
