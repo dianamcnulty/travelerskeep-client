@@ -5,10 +5,10 @@
 </div>
   <!-- show this section for all trips to this country-->
 <div id='vacation-description'>
-<h5>{{vacation.month}} {{vacation.year}}</h5>
+<h5>{{vacation.year}}</h5>
 <!-- only display this if companions present-->
 <p>You traveled here with {{vacation.companions}}</p>
-<button id='updateVacation' data-id='{{vacation.id}}'>
+
 </div>
 <div id='stories-container'>
   <h5>Stories</h5>
@@ -17,3 +17,5 @@
     <li><a class='story-link' data-id={{story.id}}>{{story.title}}</a></li>
   </ul>
 </div>
+<button id='updateVacation' data-id='{{vacation.id}}'>Update Trip</button>
+<button id='deleteVacation' data-id='{{vacation.id}}'>Delete Trip</button>
