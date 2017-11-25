@@ -1,12 +1,12 @@
 'use strict'
 const vacationAPI = require('../API/vacation-api')
-const newVacationEvents = require('../add-vacation/events')
+const mapEvents = require('../map-view/events')
 
 const deleteVacation = function (event) {
   const vacationId = event.target.dataset.id
   vacationAPI.deleteVacation(vacationId)
     .then((response) => {
-      newVacationEvents.backToMap()
+      mapEvents.backToMap()
       $('#section-alerts').text('Trip was successfully deleted.')
       $('#section-alerts').show()
       $('#section-alerts').fadeOut(400)
