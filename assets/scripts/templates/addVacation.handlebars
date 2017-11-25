@@ -1,14 +1,14 @@
 <h3>Add Your Adventure to Your Collection</h3>
 <form id='add-vacation-form'>
   <label>Country *</label>
-  <select class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
+  <select id='select-country'class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
     <option selected disabled>Select a Country</option>
   {{#each places.nations.countries as |country|}}
   <option value="{{country.name}}">{{country.name}}</option>
   {{/each}}
 </select>
-  <label>State (if USA)</label>
-  <select class='add-input' type='text' name='vacation[state]' placeholder="State">
+  <label class='select-state' >State (if USA)</label>
+  <select  class='add-input select-state' type='text' name='vacation[state]' placeholder="State">
     <option></option>
     {{#each places.states}}
     <option value="{{this}}">{{this}}</option>

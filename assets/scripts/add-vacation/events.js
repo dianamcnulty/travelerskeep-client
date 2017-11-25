@@ -36,6 +36,14 @@ const newVacationHandlers = function () {
   $(document).on('submit', '#add-story', onSaveStory)
   $(document).on('click', '#done', mapEvents.backToMap)
   $(document).on('skip', '#done', mapEvents.backToMap)
+  $(document).on('change', '#select-country', function () {
+    if ($('#select-country').val() === 'United States') {
+      $('.select-state').show()
+    } else {
+      $('.select-state').hide()
+      $('.select-state').val('')
+    }
+  })
 }
 module.exports = {
   newVacationHandlers
