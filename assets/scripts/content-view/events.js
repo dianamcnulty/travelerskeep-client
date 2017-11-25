@@ -8,12 +8,13 @@ const deleteVacation = function (event) {
     .then((response) => {
       newVacationEvents.backToMap()
       $('#section-alerts').text('Trip was successfully deleted.')
+      $('#section-alerts').show()
       $('#section-alerts').fadeOut(400)
     })
     .catch(console.error)
 }
 const updateVacation = function (event) {
-  console.log('clicked the delete button. vacation id is', event.target.dataset.id)
+  console.log('clicked the update button. vacation id is', event.target.dataset.id)
 }
 
 const contentViewHandlers = function () {
