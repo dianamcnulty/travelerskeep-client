@@ -1,5 +1,8 @@
 <div>
-  <h3>{{vacation.country}}</h3>
+  <h3>{{#if vacation.state}}
+    {{vacation.state}},
+    {{/if}}{{vacation.country}}
+  </h3>
   <div id='carousel-container'> placeholder for photo carousel</div>
   <section>
     <div class='feature' id='highlighted-content'>
