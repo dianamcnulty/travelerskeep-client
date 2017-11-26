@@ -1,0 +1,42 @@
+@import'./fonts';
+
+body {
+  font-family: $paragraph-font;
+}
+h1 {
+  font-family: $headline-font;
+}
+.title{
+  display: inline-block;
+}
+.navbar {
+  background: rgba(0, 0, 0, 0.0);
+  display:inline-block;
+  float:right;
+  position:relative;
+  top:20px;
+  margin-bottom: 0;
+}
+.navbar-toggle {
+  margin:auto;
+}
+.story-list {
+  display: inline-block;
+  float: right;
+  width: 32%;
+  border: 1px #fff solid
+}
+.feature {
+  display: inline-block;
+  float: left;
+  width: 65%;
+  border: 1px #fff solid
+}
+// button {
+//   background: rgba(225, 244, 244, 0.0);
+//   border: 2px dashed #937455;
+//   border-radius: 0px;
+//   height: 25px;
+//   cursor: pointer;
+//   margin: 5px;
+// }

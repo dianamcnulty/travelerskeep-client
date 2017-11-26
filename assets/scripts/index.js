@@ -1,14 +1,25 @@
 'use strict'
-
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const authEvents = require('./auth/authevents')
+const loginTemplate = require('./templates/login.handlebars')
+const contentView = require('./content-view/events')
+const mapEvents = require('./map-view/events')
+const createVacationEvents = require('./add-vacation/events')
 
 $(() => {
   setAPIOrigin(location, config)
 })
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
+$(() => {
+  $('#map-view').hide()
+  $('#content-container').html(loginTemplate())
+  $('#sign-up').hide()
+  $('#nav').hide()
+})
+$(() => {
+  authEvents.clickHandlers()
+  mapEvents.mapViewHandlers()
+  contentView.contentViewHandlers()
+  createVacationEvents.newVacationHandlers()
+})
