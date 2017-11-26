@@ -32,16 +32,57 @@ const backToMap = function () {
   map.renderMap()
   $('#map-view').show()
 }
+const onSelectRegion = function (e) {
+  const selectedRegion = e.target.dataset.code
+  vacationAPI.getAllVacations()
+    .then((response) => {
+      console.log(response)
+      if (selectedRegion === 'United States') {
+        const statesVisited = {}
+        const vacations = response.vacations
+        vacations.forEach(vacation => {
+          if (vacation.state) {
+            if (!statesVisited[vacation.state]) {
+              statesVisited[vacation.state] = [vacation.year]
+            } else {
+              statesVisited[vacation.state].push(vacation.year)
+            }
+          }
+        })
+        console.log('statesVisited is', statesVisited)
+        map.showUS(statesVisited)
+      } else {
+        const matching = []
+        response.vacations.forEach((el) => {
+          if (el.country === selectedRegion) {
+            matching.push(el)
+          }
+        })
+        if (matching.length === 0) {
+          response.vacations.forEach((el) => {
+            if (el.state === selectedRegion) {
+              matching.push(el)
+            }
+          })
+        }
+        if (matching.length === 1) {
+          console.log('matching is', matching)
+          vacationAPI.getOneVacation(matching[0].id)
+            .then(vacation => {
+              console.log('vacation is', vacation)
+              $('#map-view').hide()
+              $('#content-container').html(contentTemplate(vacation))
+            })
+        }
+        console.log('matching trips are', matching)
+      }
+    })
+}
 const mapViewHandlers = function () {
   $(document).on('click', '#add-vacation', goToNewVacation)
   $('#map-nav').on('click', backToMap)
   $(document).on('submit', '#select-country', goToCountry)
-  $(document).on('click', '.jvectormap-region', (e) => {
-    console.log('country code is', e.target.dataset.code)
-    // if (e.target.dataset.code === 'US') {
-    //   showUS()
-    // }
-  })
+  $(document).on('click', '.jvectormap-region', onSelectRegion)
 }
 
 module.exports = {
