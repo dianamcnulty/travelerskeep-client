@@ -4,16 +4,13 @@
 <div id='photo-container'></div>
 <form id="multipart-form-data" enctype="multipart/form-data">
   <fieldset>
-    <legend>enctype="multipart/form-data"</legend>
-    <label>
-      Image
-      <input type="file" name="photo[img]">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file" name="photo[img]" id="exampleFormControlFile1">
     </label>
     <label>
       Description
       <input type="text" name="photo[description]">
     </label>
-
     <input type="submit" name="submit" value="Upload">
   </fieldset>
 </form>
