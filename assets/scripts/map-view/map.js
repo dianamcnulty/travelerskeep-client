@@ -20,6 +20,8 @@ const renderMap = function () {
       })
       console.log('countriesVisited is', countriesVisited)
       $('#show-world').hide()
+      $('#world-map').show()
+      $('#us-map').hide()
       $('#world-map').vectorMap({
         map: 'world_mill',
         series: {
@@ -62,7 +64,8 @@ const renderMap = function () {
 // })
 const showUS = function (statesVisited) {
   console.log('showing US. states are:', statesVisited)
-  $('#world-map').html('')
+  $('#world-map').hide()
+  $('#us-map').show()
   $('#us-map').vectorMap({
     map: 'us_aea',
     series: {
@@ -84,7 +87,7 @@ const showUS = function (statesVisited) {
     }
   })
   $('#show-world').show()
-  $('#world-map').hide()
+
 }
 module.exports = {
   renderMap,
