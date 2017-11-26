@@ -2,7 +2,21 @@
 <!-- add Photo -->
 <h3>Add Photos From Your Journey!</h3>
 <div id='photo-container'></div>
-<button id='save-photo'>Include a Photo</button>
+<form id="multipart-form-data" enctype="multipart/form-data">
+  <fieldset>
+    <legend>enctype="multipart/form-data"</legend>
+    <label>
+      Image
+      <input type="file" name="photo[img]">
+    </label>
+    <label>
+      Description
+      <input type="text" name="photo[description]">
+    </label>
+
+    <input type="submit" name="submit" value="Upload">
+  </fieldset>
+</form>
 <hr>
 <!-- add Story -->
 <h3>Add Stories About Your Adventures!</h3>
