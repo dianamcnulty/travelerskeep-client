@@ -2,15 +2,12 @@
 <!-- add Photo -->
 <h3>Add Photos From Your Journey!</h3>
 <div id='photo-container'></div>
-<form id="multipart-form-data" enctype="multipart/form-data">
+<form id="photo-form" enctype="multipart/form-data">
   <fieldset>
-    <label for="exampleFormControlFile1">Example file input</label>
-    <input type="file" class="form-control-file" name="photo[img]" id="exampleFormControlFile1">
-    </label>
-    <label>
-      Description
-      <input type="text" name="photo[description]">
-    </label>
+    <label for="exampleFormControlFile1">Choose a File</label>
+    <input type="file" class="form-control-file" name="photo[img]" id="photo-input">
+    <label>Description</label>
+      <input type="text" name="photo[caption]">
     <input type="submit" name="submit" value="Upload">
   </fieldset>
 </form>
