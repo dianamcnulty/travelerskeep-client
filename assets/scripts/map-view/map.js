@@ -11,7 +11,7 @@ const renderMap = function () {
     .then(response => {
       $('#vacation-dropdown').html('')
       response.vacations.forEach((vacation) => {
-        $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.country + ', ' + vacation.year + '</option>')
+        $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.state + ' ' + vacation.country + ', ' + vacation.year + '</option>')
         if (!countriesVisited[vacation.country]) {
           countriesVisited[vacation.country] = [vacation.year]
         } else {
