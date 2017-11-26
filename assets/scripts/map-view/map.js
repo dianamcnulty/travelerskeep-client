@@ -65,6 +65,7 @@ const renderMap = function () {
 const showUS = function (statesVisited) {
   console.log('showing US. states are:', statesVisited)
   $('#world-map').hide()
+  $('#us-map').html('')
   $('#us-map').show()
   $('#us-map').vectorMap({
     map: 'us_aea',
