@@ -59,8 +59,13 @@ const onSelectRegion = function (e) {
           }
         })
         if (matching.length === 0) {
-          goToNewVacation()
-        } else if (matching.length === 1) {
+          response.vacations.forEach((el) => {
+            if (el.state === selectedRegion) {
+              matching.push(el)
+            }
+          })
+        }
+        if (matching.length === 1) {
           console.log('matching is', matching)
           vacationAPI.getOneVacation(matching[0].id)
             .then(vacation => {
