@@ -18,7 +18,6 @@ const deleteVacation = function (event) {
     })
     .catch(console.error)
 }
-const updateVacation = function (event) {
 const editVacation = function (event) {
   const id = event.target.dataset.id
   vacationAPI.getOneVacation(id)

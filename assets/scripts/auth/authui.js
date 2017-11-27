@@ -43,6 +43,8 @@ const logOutSuccess = function (data) {
   $('#content-container').html(loginTemplate())
   $('#sign-up').hide()
   $('#nav').hide()
+  $('#world-map').html('')
+  $('#us-map').html('')
 }
 const passwordSuccess = function (data) {
   // console.log('password changed successfully')

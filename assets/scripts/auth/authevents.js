@@ -33,7 +33,7 @@ const passwordBehavior = function (event) {
 const clickHandlers = function () {
   $(document).on('submit', '#sign-up', signUpBehavior)
   $(document).on('submit', '#log-in', logInBehavior)
-  $('#logout').on('click', logOutBehavior)
+  $('#logout-nav').on('click', logOutBehavior)
   $(document).on('submit', '#password-update', passwordBehavior)
   $(document).on('click', '#sign-up-link', () => {
     $('#sign-up-link').hide()
