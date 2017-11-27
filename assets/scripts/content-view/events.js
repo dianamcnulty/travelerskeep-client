@@ -8,7 +8,6 @@ const editStoryTemplate = require('../templates/edit-story.handlebars')
 
 const deleteVacation = function (event) {
   const vacationId = $('#delete-vacation-btn').attr('data-id')
-  console.log('vacation id is', vacationId)
   vacationAPI.deleteVacation(vacationId)
     .then((response) => {
       $('#delete-vacation-modal').modal('hide')
@@ -24,7 +23,6 @@ const editVacation = function (event) {
     .then((response) => {
       updateUI.showEditVacation(response)
     })
-  console.log('clicked the update button. vacation id is', event.target.dataset.id)
 }
 const showStory = function (event) {
   const storyId = event.target.dataset.id
@@ -36,14 +34,12 @@ const showStory = function (event) {
 }
 const goToStoryPhotos = function (event) {
   const vacation = {vacation: {id: event.target.dataset.id}}
-  console.log('vacation is ', vacation)
   $('#content-container').html(storyPhotoTemplate(vacation))
 }
 const goEditStory = function (event) {
   const storyId = event.target.dataset.id
   storyAPI.getOneStory(storyId)
     .then((response) => {
-      console.log('onestory response is', response)
       $('#content-container').html(editStoryTemplate(response))
     })
 }

@@ -1,5 +1,12 @@
 <p id="section-alerts" class='alert'></p>
 <h2>Edit or Remove Your Story</h2>
+<label>Remove Story:</label>
+
+<button id='delete-story-btn' data-id="{{story.id}}"
+data-vacation="{{story.vacation.id}}" type="button" data-toggle="modal" data-target="#delete-story-modal">Delete This Story</button>
+<hr>
+
+<label>Edit Story:</label>
 <form id='edit-story'>
   <input type='hidden' name='story[id]' value={{story.id}}>
   <label>Title</label><br>
@@ -9,7 +16,7 @@
   <button type='submit' type="button">
   Update Story
   </button>
+  <button id='cancel-update-story' data-id={{story.vacation.id}} type="button">
+  Cancel
+  </button>
 </form>
-<button id='cancel-update-story' data-id={{story.vacation.id}} type="button">
-Cancel
-</button>

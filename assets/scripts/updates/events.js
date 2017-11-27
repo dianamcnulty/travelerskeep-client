@@ -38,10 +38,20 @@ const cancelUpdate = function (event) {
   console.log('vacationId is', vacationId)
   sendToTrip(vacationId)
 }
+const onDeleteStory = function (event) {
+  const vacationId = $('#delete-story-btn').attr('data-vacation')
+  const storyId = $('#delete-story-btn').attr('data-id')
+  storyAPI.deleteStory(storyId)
+    .then(() => {
+      sendToTrip(vacationId)
+    })
+    .catch(console.error)
+}
 const updateViewHandlers = function () {
   $(document).on('submit', '#update-vacation-form', onUpdateTrip)
   $(document).on('submit', '#edit-story', onEditStory)
   $(document).on('click', '#cancel-update-story', cancelUpdate)
+  $(document).on('click', '#delete-story-cnfrm', onDeleteStory)
 }
 
 module.exports = {
