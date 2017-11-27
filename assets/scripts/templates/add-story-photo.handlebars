@@ -1,14 +1,16 @@
 <h2>Include Stories and Photos</h2>
 <!-- add Photo -->
 <h3>Add Photos From Your Journey!</h3>
-<div id='photo-container'></div>
+<div id='photo-container'>
+<label id='photo-list-label'></label>
+</div>
 <form id="photo-form" enctype="multipart/form-data">
   <fieldset>
     <input id='vacationID' type='hidden' name='photo[vacation_id]' value={{vacation.id}}>
-    <label form="exampleFormControlFile1">Choose a File</label>
+    <label id="choose-label">Choose a File</label>
     <input id='img' type="file" class="form-control-file" name="photo[img]" id="photo-input">
     <label>Description</label>
-      <input id='caption' type="text" name="photo[caption]">
+      <input id='caption' type="text" name="photo[caption]" required='true'>
     <input type="submit" name="submit" value="Upload">
   </fieldset>
 </form>
