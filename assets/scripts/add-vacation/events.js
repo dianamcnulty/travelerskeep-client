@@ -37,7 +37,7 @@ const newVacationHandlers = function () {
   $(document).on('click', '#cancel-new-vacation', mapEvents.backToMap)
   $(document).on('submit', '#add-story', onSaveStory)
   $(document).on('click', '#done', mapEvents.backToMap)
-  $(document).on('skip', '#done', mapEvents.backToMap)
+  $(document).on('click', '#skip', mapEvents.backToMap)
   $(document).on('submit', '#photo-form', photoAPI.createPhoto)
   $(document).on('change', '#select-country', function () {
     if ($('#select-country').val() === 'United States') {
