@@ -36,7 +36,7 @@ const createPhoto = function (e) {
         img: event.target.result
       }}
     }).done(function (response) {
-
+      console.log('success!!!!', response)
     }).fail(function (response) {
       console.error('Awww crud!!')
     })
