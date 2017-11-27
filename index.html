@@ -29,7 +29,7 @@
               <ul class="nav navbar-nav">
                 <li><a id='logout-nav' class = "nav-link">sign out</a></li>
                 <li><a id="map-nav" class = "nav-link">map</a></li>
-                <li><a id="password-nav" class = "nav-link">password</a></li>
+                <li><a id="password-nav" class = "nav-link" data-toggle="modal" data-target="#password-modal">account</a></li>
               </ul>
             </div>
           </div>
@@ -71,5 +71,30 @@
           </div>
         </div>
       </div>
+<!-- end delete modal -->
+<!-- password modal -->
+<div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="passwordModalLabel">Update your Password</h3>
+        <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id='delete-modal-alert'>To update your password, please enter your current password, then your new password and click "submit"</p>
+      </div>
+      <div class="modal-footer">
+        <form id='update-password-form'>
+          <input id='oldpass' name="passwords[old]" type='password' placeholder="old password">
+          <input id='newpass' name="passwords[new]" type="password" placeholder="new password">
+          <input type='submit' id='password-update-submit' class="btn" value='Save Changes'>
+        <form>
+        <button type="button" class="btn  nevermind" data-dismiss="modal">Nevermind.</button>
+      </div>
+    </div>
+  </div>
+</div>
     </body>
 </html>

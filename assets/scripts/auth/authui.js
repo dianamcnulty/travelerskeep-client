@@ -1,7 +1,7 @@
 const store = require('../store')
 // const view = require('../nav/views.js')
 const loginTemplate = require('../templates/login.handlebars')
-const mapEvents = require('../map-view/events')
+// const mapEvents = require('../map-view/events')
 const map = require('../map-view/map')
 // const mapTemplate = require('../templates/mapview.handlebars')
 
@@ -60,6 +60,9 @@ const passwordFail = function () {
   $('#section-alerts').hide()
   $('#section-alerts').fadeIn(200)
 }
+const goToPassword = function () {
+  console.log('I clicked password update.')
+}
 module.exports = {
   // signUpSuccess,
   signUpFail,
@@ -67,5 +70,6 @@ module.exports = {
   logOutSuccess,
   passwordSuccess,
   passwordFail,
-  logInFail
+  logInFail,
+  goToPassword
 }
