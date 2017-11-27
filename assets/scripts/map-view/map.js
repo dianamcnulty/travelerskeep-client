@@ -88,7 +88,6 @@ const showUS = function (statesVisited) {
     }
   })
   $('#show-world').show()
-
 }
 module.exports = {
   renderMap,
