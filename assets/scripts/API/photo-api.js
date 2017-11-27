@@ -1,20 +1,7 @@
 'use strict'
 const config = require('../config')
 const store = require('../store')
-
-// const createPhoto = function (photoData) {
-//   console.log('photo data is', photoData)
-//   return $.ajax({
-//     url: config.apiOrigin + '/photos',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: photoData
-//     // contentType: 'multipart/form-data',
-//     // processData: false
-//   })
-// }
+const addVacationUi = require('../add-vacation/addvacation-ui')
 
 const createPhoto = function (e) {
   e.preventDefault()
@@ -36,7 +23,8 @@ const createPhoto = function (e) {
         img: event.target.result
       }}
     }).done(function (response) {
-      console.log('success!!!!', response)
+      const caption = response.photo.caption
+      addVacationUi.addPhotoSuccess(caption)
     }).fail(function (response) {
       console.error('Awww crud!!')
     })
