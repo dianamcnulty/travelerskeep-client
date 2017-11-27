@@ -2,7 +2,16 @@
 <!-- add Photo -->
 <h3>Add Photos From Your Journey!</h3>
 <div id='photo-container'></div>
-<button id='save-photo'>Include a Photo</button>
+<form id="photo-form" enctype="multipart/form-data">
+  <fieldset>
+    <input id='vacationID' type='hidden' name='photo[vacation_id]' value={{vacation.id}}>
+    <label form="exampleFormControlFile1">Choose a File</label>
+    <input id='img' type="file" class="form-control-file" name="photo[img]" id="photo-input">
+    <label>Description</label>
+      <input id='caption' type="text" name="photo[caption]">
+    <input type="submit" name="submit" value="Upload">
+  </fieldset>
+</form>
 <hr>
 <!-- add Story -->
 <h3>Add Stories About Your Adventures!</h3>
