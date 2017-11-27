@@ -7,9 +7,9 @@ const storyAPI = require('../API/story-api')
 const sendToTrip = function (id) {
   vacationAPI.getOneVacation(id)
     .then(vacation => {
-      console.log('vacation is', vacation)
       $('#map-view').hide()
       $('#content-container').html(contentTemplate(vacation))
+      return vacation
     })
     .catch(console.error)
 }
@@ -42,9 +42,7 @@ const onDeleteStory = function (event) {
   const vacationId = $('#delete-story-btn').attr('data-vacation')
   const storyId = $('#delete-story-btn').attr('data-id')
   storyAPI.deleteStory(storyId)
-    .then(() => {
-      sendToTrip(vacationId)
-    })
+    .then(() => sendToTrip(vacationId))
     .catch(console.error)
 }
 const updateViewHandlers = function () {
