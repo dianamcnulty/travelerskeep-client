@@ -14,7 +14,6 @@ const deleteVacation = function (event) {
       mapEvents.backToMap()
       $('#section-alerts').text('Trip was successfully deleted.')
       $('#section-alerts').show()
-      $('#section-alerts').fadeOut(400)
     })
     .catch(console.error)
 }
