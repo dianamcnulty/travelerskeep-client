@@ -33,7 +33,8 @@ const getOneVacation = function (id) {
     }
   })
 }
-const updateVacationRequest = function (data) {
+const updateVacation = function (data) {
+  console.log('api call is running data is', data)
   const id = parseInt(data['vacation']['id'])
   return $.ajax({
     url: config.apiOrigin + '/vacations/' + id,
@@ -57,6 +58,6 @@ module.exports = {
   createVacation,
   getAllVacations,
   getOneVacation,
-  updateVacationRequest,
+  updateVacation,
   deleteVacation
 }

@@ -3,6 +3,7 @@ const vacationAPI = require('../API/vacation-api')
 const storyAPI = require('../API/story-api')
 const mapEvents = require('../map-view/events')
 const storyPhotoTemplate = require('../templates/add-story-photo.handlebars')
+const updateUI = require('../update-view/update-trip-ui')
 
 const deleteVacation = function (event) {
   const vacationId = $('#delete-vacation-btn').attr('data-id')
@@ -18,6 +19,12 @@ const deleteVacation = function (event) {
     .catch(console.error)
 }
 const updateVacation = function (event) {
+const editVacation = function (event) {
+  const id = event.target.dataset.id
+  vacationAPI.getOneVacation(id)
+    .then((response) => {
+      updateUI.showEditVacation(response)
+    })
   console.log('clicked the update button. vacation id is', event.target.dataset.id)
 }
 const showStory = function (event) {
@@ -35,7 +42,7 @@ const goToStoryPhotos = function (event) {
 }
 const contentViewHandlers = function () {
   $(document).on('click', '#delete-vacation-cnfrm', deleteVacation)
-  $(document).on('click', '#update-vacation-btn', updateVacation)
+  $(document).on('click', '#update-vacation-btn', editVacation)
   $(document).on('click', '.story-link', showStory)
   $(document).on('click', '#add-story-photo', goToStoryPhotos)
 }
