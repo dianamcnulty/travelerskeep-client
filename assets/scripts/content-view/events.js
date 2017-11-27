@@ -14,11 +14,9 @@ const deleteVacation = function (event) {
       mapEvents.backToMap()
       $('#section-alerts').text('Trip was successfully deleted.')
       $('#section-alerts').show()
-      $('#section-alerts').fadeOut(400)
     })
     .catch(console.error)
 }
-const updateVacation = function (event) {
 const editVacation = function (event) {
   const id = event.target.dataset.id
   vacationAPI.getOneVacation(id)

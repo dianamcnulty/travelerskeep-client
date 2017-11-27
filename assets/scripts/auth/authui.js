@@ -1,7 +1,7 @@
 const store = require('../store')
 // const view = require('../nav/views.js')
 const loginTemplate = require('../templates/login.handlebars')
-const mapEvents = require('../map-view/events')
+// const mapEvents = require('../map-view/events')
 const map = require('../map-view/map')
 // const mapTemplate = require('../templates/mapview.handlebars')
 
@@ -43,20 +43,24 @@ const logOutSuccess = function (data) {
   $('#content-container').html(loginTemplate())
   $('#sign-up').hide()
   $('#nav').hide()
+  $('#world-map').html('')
+  $('#us-map').html('')
 }
 const passwordSuccess = function (data) {
-  // console.log('password changed successfully')
-  $('#section-alerts').css('color', '#546819')
   $('#section-alerts').text('Your password has beeen updated. Please use your new password next time you log in.')
-  $('#password-update').hide()
+  $('#password-modal').modal('hide')
   $('#oldpass').val('')
   $('#newpass').val('')
 }
 const passwordFail = function () {
-  $('#section-alerts').css('color', '#a33900')
-  $('#section-alerts').text('uh oh... your password update didn\'t process. Please Try again')
-  $('#section-alerts').hide()
-  $('#section-alerts').fadeIn(200)
+  $('#password-alert').hide()
+  $('#oldpass').val('')
+  $('#newpass').val('')
+  $('#password-alert').text('uh oh... your password update didn\'t process. Please Try again')
+  $('#password-alert').fadeIn(200)
+}
+const goToPassword = function () {
+  console.log('I clicked password update.')
 }
 module.exports = {
   // signUpSuccess,
@@ -65,5 +69,6 @@ module.exports = {
   logOutSuccess,
   passwordSuccess,
   passwordFail,
-  logInFail
+  logInFail,
+  goToPassword
 }
