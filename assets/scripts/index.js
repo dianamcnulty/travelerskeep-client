@@ -6,7 +6,7 @@ const loginTemplate = require('./templates/login.handlebars')
 const contentView = require('./content-view/events')
 const mapEvents = require('./map-view/events')
 const createVacationEvents = require('./add-vacation/events')
-const updateView = require('./update-view/events')
+const updateView = require('./updates/events')
 $(() => {
   setAPIOrigin(location, config)
 })

@@ -1,0 +1,15 @@
+<p id="section-alerts" class='alert'></p>
+<h2>Edit or Remove Your Story</h2>
+<form id='edit-story'>
+  <input type='hidden' name='story[id]' value={{story.id}}>
+  <label>Title</label><br>
+  <input id='story-title-field' type=text name=story[title] value='{{story.title}}'><br>
+  <label>Content</label><br>
+  <textarea id='story-content-field' type=text name=story[content] rows="10" cols="50">{{story.content}}</textarea><br>
+  <button type='submit' type="button">
+  Update Story
+  </button>
+</form>
+<button id='cancel-update-story' type="button">
+Cancel
+</button>
