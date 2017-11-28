@@ -35,6 +35,20 @@ const createPhoto = function (e) {
   reader.readAsDataURL(fileInput[0].files[0])
 }
 
+const getAllPhotos = function (vacationId) {
+  return $.ajax({
+    url: config.apiOrigin + '/photos',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      photo: {vacation_id: vacationId}
+    }
+  })
+}
+
 module.exports = {
-  createPhoto
+  createPhoto,
+  getAllPhotos
 }

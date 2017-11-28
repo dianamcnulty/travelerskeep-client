@@ -4,7 +4,18 @@
     {{vacation.state}},
     {{/if}}{{vacation.country}}
   </h3>
-  <div id='carousel-container'> placeholder for photo carousel</div>
+  <!-- carousel -->
+  {{#if vacation.photos}}
+  <div class="rg-image-wrapper">
+			<div class="rg-image-nav">
+				<a href="#" class="rg-image-nav-prev"></a>    {{#each vacation.photos as |photo|}}
+              <img style='height:75px;' data-url={{photo.img}} data-caption={{data.caption}} class='thumbnail' alt={{photo.caption}} src={{photo.img}}>
+            {{/each}}
+				<a href="#" class="rg-image-nav-next">Next Image</a>
+			</div>
+		{{/if}}
+	</div>
+  <!--end carousel -->
   <section>
     <div class='feature' id='highlighted-content'>
       <span>placeholder for Highlighted stories/photos</span>
