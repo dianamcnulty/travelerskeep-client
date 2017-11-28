@@ -17,12 +17,12 @@ const map = require('../map-view/map')
 // }
 const signUpFail = function () {
   $('#section-alerts').hide()
-  $('#section-alerts').text('Sorry, there was an issue signing up. Please try again.')
+  $('#section-alerts').html('<span class="warning">Sorry, there was an issue signing up. Please try again.</span>')
   $('#section-alerts').fadeIn(200)
 }
 const logInFail = function () {
   $('#section-alerts').hide()
-  $('#section-alerts').text('Sorry, sign in failed. Please try again.')
+  $('#section-alerts').html('<span class="warning">Sorry, sign in failed. Please try again.</span>')
   $('#section-alerts').fadeIn(200)
   $('.login').val('')
 }
@@ -30,6 +30,7 @@ const logInSuccess = function (data) {
   console.log('log in success')
   store.user = data.user
   $('.login').val('')
+  $('#section-alerts').html('')
   $('#content-container').html('')
   map.renderMap()
   $('#map-view').show()
@@ -45,9 +46,10 @@ const logOutSuccess = function (data) {
   $('#nav').hide()
   $('#world-map').html('')
   $('#us-map').html('')
+  $('#section-alerts').html('<span class="success">logged out successfully</span>')
 }
 const passwordSuccess = function (data) {
-  $('#section-alerts').text('Your password has beeen updated. Please use your new password next time you log in.')
+  $('#section-alerts').html('<span class="success">Your password has beeen updated. Please use your new password next time you log in.</span>')
   $('#password-modal').modal('hide')
   $('#oldpass').val('')
   $('#newpass').val('')
@@ -59,9 +61,6 @@ const passwordFail = function () {
   $('#password-alert').text('uh oh... your password update didn\'t process. Please Try again')
   $('#password-alert').fadeIn(200)
 }
-const goToPassword = function () {
-  console.log('I clicked password update.')
-}
 module.exports = {
   // signUpSuccess,
   signUpFail,
@@ -69,6 +68,5 @@ module.exports = {
   logOutSuccess,
   passwordSuccess,
   passwordFail,
-  logInFail,
-  goToPassword
+  logInFail
 }

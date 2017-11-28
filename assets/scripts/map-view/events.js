@@ -22,6 +22,8 @@ const goToCountry = function (event) {
     .then(vacation => {
       console.log('vacation is', vacation)
       $('#map-view').hide()
+      $('#world-map').html('')
+      $('#us-map').html('')
       $('#content-container').html(contentTemplate(vacation))
     })
 }
