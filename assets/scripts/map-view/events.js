@@ -14,7 +14,6 @@ const goToNewVacation = function () {
       const places = {places: {nations: countries, states: states}}
       $('#content-container').html(newVacationTemplate(places))
     })
-    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your trip details, please try again.</span>'))
 }
 const goToCountry = function (event) {
   event.preventDefault()
