@@ -20,6 +20,10 @@ h1 {
 }
 .navbar-toggle {
   margin:auto;
+  border-radius: 0;
+}
+.navbar-default, .navbar-collapse {
+  border:hidden;
 }
 .story-list {
   display: inline-block;
