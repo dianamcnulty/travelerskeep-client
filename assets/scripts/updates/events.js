@@ -11,7 +11,6 @@ const sendToTrip = function (id) {
       $('#content-container').html(contentTemplate(vacation))
       return vacation
     })
-    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your trip details, please try again.</span>'))
 }
 const onUpdateTrip = function (event) {
   event.preventDefault()
@@ -60,5 +59,6 @@ const updateViewHandlers = function () {
 }
 
 module.exports = {
-  updateViewHandlers
+  updateViewHandlers,
+  sendToTrip
 }

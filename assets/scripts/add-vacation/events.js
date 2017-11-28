@@ -5,6 +5,7 @@ const storyAPI = require('../API/story-api')
 const mapEvents = require('../map-view/events')
 const storyPhotoTemplate = require('../templates/add-story-photo.handlebars')
 const photoAPI = require('../API/photo-api')
+const updateEvents = require('../updates/events')
 
 const onCreateVacation = function (event) {
   event.preventDefault()
@@ -31,14 +32,17 @@ const onSaveStory = function (event) {
     })
     .catch(console.error)
 }
-
+const sendToTrip = function (event) {
+  const vacationId = event.target.dataset.vacationid
+  updateEvents.sendToTrip(vacationId)
+}
 const newVacationHandlers = function () {
   $('.add-input').val('')
   $(document).on('submit', '#add-vacation-form', onCreateVacation)
   $(document).on('click', '#cancel-new-vacation', mapEvents.backToMap)
   $(document).on('submit', '#add-story', onSaveStory)
-  $(document).on('click', '#done', mapEvents.backToMap)
-  $(document).on('click', '#skip', mapEvents.backToMap)
+  $(document).on('click', '#done', sendToTrip)
+  $(document).on('click', '#skip', sendToTrip)
   $(document).on('submit', '#photo-form', photoAPI.createPhoto)
   $(document).on('change', '#select-country', function () {
     if ($('#select-country').val() === 'United States') {
