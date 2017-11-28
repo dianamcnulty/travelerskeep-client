@@ -11,7 +11,7 @@ const sendToTrip = function (id) {
       $('#content-container').html(contentTemplate(vacation))
       return vacation
     })
-    .catch(console.error)
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your trip details, please try again.</span>'))
 }
 const onUpdateTrip = function (event) {
   event.preventDefault()
@@ -19,8 +19,11 @@ const onUpdateTrip = function (event) {
   console.log('updateData is', data)
   const id = data.vacation.id
   vacationAPI.updateVacation(data)
-    .then((response) => sendToTrip(id))
-    .catch(console.error)
+    .then((response) => {
+      sendToTrip(id)
+      $('#section-alerts').html('<span class="success">Details for this journey have been successfully updated</span>')
+    })
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error updating your trip details, please try again.</span>'))
 }
 const onEditStory = function (event) {
   event.preventDefault()
@@ -30,20 +33,24 @@ const onEditStory = function (event) {
     .then(response => {
       const id = response.story.vacation.id
       sendToTrip(id)
+      $('#section-alerts').html('<span class="success">Story Successfully Updated</span>')
     })
-    .catch(console.error)
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error updating your story, please try again.</span>'))
 }
 const cancelUpdate = function (event) {
   const vacationId = event.target.dataset.id
-  console.log('vacationId is', vacationId)
   sendToTrip(vacationId)
+  $('#section-alerts').html('')
 }
 const onDeleteStory = function (event) {
   const vacationId = $('#delete-story-btn').attr('data-vacation')
   const storyId = $('#delete-story-btn').attr('data-id')
   storyAPI.deleteStory(storyId)
-    .then(() => sendToTrip(vacationId))
-    .catch(console.error)
+    .then(() => {
+      sendToTrip(vacationId)
+      $('#section-alerts').html('<span class="success">Story Successfully Deleted</span>')
+    })
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error deleting your story, please try again.</span>'))
 }
 const updateViewHandlers = function () {
   $(document).on('submit', '#update-vacation-form', onUpdateTrip)

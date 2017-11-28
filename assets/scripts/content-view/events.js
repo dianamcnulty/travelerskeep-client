@@ -12,17 +12,19 @@ const deleteVacation = function (event) {
     .then((response) => {
       $('#delete-vacation-modal').modal('hide')
       mapEvents.backToMap()
-      $('#section-alerts').text('Trip was successfully deleted.')
+      $('#section-alerts').html('<span class="success">Trip was successfully deleted.</span>')
       $('#section-alerts').show()
     })
-    .catch(console.error)
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error deleting this trip, please try again.</span>'))
 }
 const editVacation = function (event) {
   const id = event.target.dataset.id
   vacationAPI.getOneVacation(id)
     .then((response) => {
       updateUI.showEditVacation(response)
+      $('#section-alerts').html('')
     })
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your trip details, please try again.</span>'))
 }
 const showStory = function (event) {
   const storyId = event.target.dataset.id
@@ -30,16 +32,18 @@ const showStory = function (event) {
     .then(response => {
       $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
     })
-    .catch(console.error)
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your story, please try again.</span>'))
 }
 const goToStoryPhotos = function (event) {
   const vacation = {vacation: {id: event.target.dataset.id}}
+  $('#section-alerts').html('')
   $('#content-container').html(storyPhotoTemplate(vacation))
 }
 const goEditStory = function (event) {
   const storyId = event.target.dataset.id
   storyAPI.getOneStory(storyId)
     .then((response) => {
+      $('#section-alerts').html('')
       $('#content-container').html(editStoryTemplate(response))
     })
 }

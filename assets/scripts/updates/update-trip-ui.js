@@ -8,6 +8,7 @@ const showEditVacation = function (vacation) {
   countryAPI.getAllCountries()
     .then((countries) => {
       $('#map-view').hide()
+      $('#section-alerts').html('')
       const places = {places: {nations: countries, states: states}}
       $('#content-container').html(editTripTemplate(places))
       const trip = vacation.vacation

@@ -24,6 +24,7 @@ const onSaveStory = function (event) {
     .then(response => {
       const title = response.story.title
       console.log('title is', title)
+      $('#story-list-label').text('Stories Successfully Added:')
       $('#story-container').append('<label>' + title + '</label><br>')
       $('#story-title-field').val('')
       $('#story-content-field').val('')
