@@ -1,26 +1,45 @@
-<div>
-  <h3>{{#if vacation.state}}
+<div class='content-page-container'>
+  <h2 style='display: inline-block;'>{{#if vacation.state}}
     {{vacation.state}},
-    {{/if}}{{vacation.country}}
-  </h3>
-  <div id='carousel-container'> placeholder for photo carousel</div>
+    {{/if}}{{vacation.country}}: </h2><h4>{{#if vacation.month}} {{vacation.month}}, {{/if}}{{vacation.year}}</h4>
+  <!-- carousel -->
+  {{#if vacation.photos}}
+		<img id='scroll-right' style='height:20px;' src='https://png.icons8.com/?id=46409&size=540'>
+    <div class="rg-image-wrapper">
+			<div class="rg-image-nav">
+       {{#each vacation.photos as |photo|}}
+          <img class='thumb' style='height:75px;' data-url={{photo.img}} data-caption={{photo.caption}}  alt={{photo.caption}} src={{photo.img}}>
+        {{/each}}
+		</div>
+    	</div>
+		<img id='scroll-left' style='height:20px;' src='https://png.icons8.com/?id=42895&size=540'>
+		{{/if}}
+
+  <!--end carousel -->
   <section>
     <div class='feature' id='highlighted-content'>
-      <span>placeholder for Highlighted stories/photos</span>
-      <p>image caption goes here</p>
+      {{#if vacation.photos}}
+<img class='feature-photo'  src={{vacation.photos.0.img}}>
+<p class='caption'>{{vacation.photos.0.caption}}</p>
+{{else if vacation.stories}}
+  <h3>{{vacation.stories.0.title}}</h3><br>
+  <p class='story'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
+  {{else}}
+  <h3>This is Where You Keep Your Memories</h3>
+  <p>Remember all the good times you had in {{vacation.country}} in {{vacation.year}}? Add photos and stories to this Adventure, so you can view them here.</p>
+{{/if}}
     </div>
   </section>
     <!-- show this section for all trips to this country-->
     <section class='story-list'>
       <div id='vacation-description'>
-      <h5>{{vacation.year}}</h5>
       {{#if vacation.companions}}
-      <p>You traveled here with {{vacation.companions}}</p>
+      <p>You traveled here with {{vacation.companions}} in {{vacation.year}}</p>
       {{/if}}
       </div>
       {{#if vacation.stories}}
       <div id='stories-container'>
-        <h5>Stories</h5>
+        <h4>Stories</h4>
         <!-- show bulleted list of stories for each story -->
         <ul>
           {{#each vacation.stories as |story|}}
@@ -29,8 +48,8 @@
         </ul>
       </div>
       {{/if}}
-      <button id='add-story-photo' data-id='{{vacation.id}}'>Add Stories and Photos</button>
-      <button id='update-vacation-btn' data-id='{{vacation.id}}'>Edit Trip Details</button>
-      <button id='delete-vacation-btn' data-id="{{vacation.id}}" type="button" data-toggle="modal" data-target="#delete-vacation-modal">Delete Trip</button>
+      <button class='sidebar-button' id='add-story-photo' data-id='{{vacation.id}}'>Add Stories and Photos</button>
+      <button class='sidebar-button' id='update-vacation-btn' data-id='{{vacation.id}}'>Edit Trip Details</button>
+      <button class='sidebar-button danger-button' id='delete-vacation-btn' data-id="{{vacation.id}}" type="button" data-toggle="modal" data-target="#delete-vacation-modal">Delete Trip</button>
     </section>
 </div>
