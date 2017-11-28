@@ -41,7 +41,7 @@ const renderMap = function () {
             el.html('You were in ' + el.html() + ' in ' + countriesVisited[year].toString() + ' Click to see your trip')
             // console.log('visited is', e.target.dataset.visited)
           } else if (countriesVisited[year].length > 1) {
-            el.html('You have been to ' + el.html() + ' several times! To see trips to ' + el.html() + ' select a specific trip from the dropdown below.')
+            el.html('You have been to ' + el.html() + ' several times! Click to see memories from your first trip here. To see other trips to ' + el.html() + ', select one from the dropdown below.')
           }
         }
       })

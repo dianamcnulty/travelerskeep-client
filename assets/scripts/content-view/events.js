@@ -28,7 +28,7 @@ const showStory = function (event) {
   const storyId = event.target.dataset.id
   storyAPI.getOneStory(storyId)
     .then(response => {
-      $('#highlighted-content').html('<h3>' + response.story.title + '</h3><br><p>' + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
+      $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
     })
     .catch(console.error)
 }
@@ -43,12 +43,29 @@ const goEditStory = function (event) {
       $('#content-container').html(editStoryTemplate(response))
     })
 }
+const scrollLeft = function () {
+  const currentPosition = $('.rg-image-wrapper').scrollLeft()
+  $('.rg-image-wrapper').scrollLeft(currentPosition + 40)
+}
+const scrollRight = function () {
+  const currentPosition = $('.rg-image-wrapper').scrollLeft()
+  $('.rg-image-wrapper').scrollLeft(currentPosition - 40)
+}
+const showImage = function (event) {
+  const url = event.target.dataset.url
+  const caption = event.target.dataset.caption
+  console.log('caption is', caption)
+  $('#highlighted-content').html("<img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p>')
+}
 const contentViewHandlers = function () {
   $(document).on('click', '#delete-vacation-cnfrm', deleteVacation)
   $(document).on('click', '#update-vacation-btn', editVacation)
   $(document).on('click', '.story-link', showStory)
   $(document).on('click', '#add-story-photo', goToStoryPhotos)
   $(document).on('click', '#go-edit-story', goEditStory)
+  $(document).on('click', '#scroll-left', scrollLeft)
+  $(document).on('click', '#scroll-right', scrollRight)
+  $(document).on('click', '.thumb', showImage)
 }
 
 module.exports = {
