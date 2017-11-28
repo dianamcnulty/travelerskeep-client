@@ -33,9 +33,8 @@ const getOneStory = function (id) {
     }
   })
 }
-const updateStory = function (data) {
-  const id = data.story.id
-  console.log('in the update api call function. data is', data)
+const updateStoryRequest = function (data) {
+  const id = parseInt(data['story']['id'])
   return $.ajax({
     url: config.apiOrigin + '/stories/' + id,
     method: 'PATCH',
@@ -58,6 +57,6 @@ module.exports = {
   createStory,
   getAllStories,
   getOneStory,
-  updateStory,
+  updateStoryRequest,
   deleteStory
 }
