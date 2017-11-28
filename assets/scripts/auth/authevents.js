@@ -25,7 +25,6 @@ const logOutBehavior = function () {
 }
 const passwordBehavior = function (event) {
   event.preventDefault()
-  console.log('is this running?')
   const data = getFormFields(this)
   api.updatePassword(data)
     .then(authui.passwordSuccess)
@@ -34,9 +33,8 @@ const passwordBehavior = function (event) {
 const clickHandlers = function () {
   $(document).on('submit', '#sign-up', signUpBehavior)
   $(document).on('submit', '#log-in', logInBehavior)
-  $('#logout-nav').on('click', logOutBehavior)
-  $('#password-nav').on('click', authui.goToPassword)
-  $('#update-password-form').on('submit', passwordBehavior)
+  $('#logout').on('click', logOutBehavior)
+  $(document).on('submit', '#password-update', passwordBehavior)
   $(document).on('click', '#sign-up-link', () => {
     $('#sign-up-link').hide()
     $('#auth-error').text('')
