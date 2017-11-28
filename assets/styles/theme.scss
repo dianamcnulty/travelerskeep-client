@@ -30,7 +30,17 @@ h1 {
   display: inline-block;
   float: left;
   width: 65%;
-  border: 1px #fff solid
+  border: 1px #fff solid;
+  max-height: 200px;
+  overflow-x: scroll;
+}
+.story {
+  max-height: 500px;
+  overflow-x: scroll;
+}
+.content-page-container {
+  width: 80%;
+  margin:auto;
 }
 // button {
 //   background: rgba(225, 244, 244, 0.0);

@@ -1,18 +1,21 @@
 .rg-image-wrapper{
 	position:relative;
 	padding:10px 15px;
-	background:black;	border: 1px black solid;
+	background:transparent;
+  border: 1px black solid;
 	min-height:20px;
   max-height: 95px;
   white-space: nowrap;
   overflow-y: scroll;
+  width:80%;
+  display:inline-block;
 }
 
 .rg-image-nav a{
 	position:absolute;
 	top:0px;
 	left:0px;
-	background:black url(../images/nav_thumbs.png) no-repeat -20% 50%;
+	background:#000 url(../images/nav_thumbs.png) no-repeat -20% 50%;
 	width:28px;
 	height:100%;
 	text-indent:-9000px;

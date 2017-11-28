@@ -1,25 +1,32 @@
 <p id="content-section-alerts" class='alert'></p>
-<div>
+<div class='content-page-container'>
   <h3>{{#if vacation.state}}
     {{vacation.state}},
     {{/if}}{{vacation.country}}
   </h3>
   <!-- carousel -->
   {{#if vacation.photos}}
-  <div class="rg-image-wrapper">
+		<img id='scroll-right' style='height:20px;' src='https://png.icons8.com/?id=46409&size=540'>
+    <div class="rg-image-wrapper">
 			<div class="rg-image-nav">
-				<a href="#" class="rg-image-nav-prev"></a>    {{#each vacation.photos as |photo|}}
-              <img style='height:75px;' data-url={{photo.img}} data-caption={{data.caption}} class='thumbnail' alt={{photo.caption}} src={{photo.img}}>
-            {{/each}}
-				<a href="#" class="rg-image-nav-next">Next Image</a>
-			</div>
+       {{#each vacation.photos as |photo|}}
+          <img class='thumb' style='height:75px;' data-url={{photo.img}} data-caption={{photo.caption}}  alt={{photo.caption}} src={{photo.img}}>
+        {{/each}}
+		</div>
+    	</div>
+		<img id='scroll-left' style='height:20px;' src='https://png.icons8.com/?id=42895&size=540'>
 		{{/if}}
-	</div>
+
   <!--end carousel -->
   <section>
     <div class='feature' id='highlighted-content'>
-      <span>placeholder for Highlighted stories/photos</span>
-      <p>image caption goes here</p>
+      {{#if vacation.photos}}
+<img style='max-width:90%; max-height:90%;' src={{vacation.photos.0.img}}>
+<p>{{vacation.photos.0.caption}}</p>
+{{else if vacation.stories}}
+  <h3>{{vacations.stories.0.title}}</h3><br>
+  <p class='story'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
+{{/if}}
     </div>
   </section>
     <!-- show this section for all trips to this country-->
