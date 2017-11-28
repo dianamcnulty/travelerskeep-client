@@ -1,4 +1,5 @@
 @import'./fonts';
+@import'./colors';
 
 body {
   font-family: $paragraph-font;
@@ -51,7 +52,13 @@ h1 {
   width:95%;
 }
 .danger-button {
-  background: red;
+  background: $warning-text;
+}
+.success {
+  color: $success-text;
+}
+.warning {
+  color: $warning-text;
 }
 // button {
 //   background: rgba(225, 244, 244, 0.0);
