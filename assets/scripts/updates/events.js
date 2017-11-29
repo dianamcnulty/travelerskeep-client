@@ -56,6 +56,7 @@ const updateViewHandlers = function () {
   $(document).on('submit', '#edit-story', onEditStory)
   $(document).on('click', '#cancel-update-story', cancelUpdate)
   $(document).on('click', '#delete-story-cnfrm', onDeleteStory)
+  $(document).on('click', '#cancel-new-vacation', cancelUpdate)
 }
 
 module.exports = {

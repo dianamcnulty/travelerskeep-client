@@ -5,9 +5,9 @@
 <form id='update-vacation-form'>
   <input id='vacation-id-input' type=hidden name='vacation[id]'>
   <label>*Country:
-  <select id='update-country'class='add-input' type='text' required='true' name='vacation[country]'>
+  <select id='select-country'class='add-input' type='text' required='true' name='vacation[country]'>
   {{#each places.nations.countries as |country|}}
-  <option id={{country.name}} value={{country.name}}>{{country.name}}</option>
+  <option id={{country.name}} value='{{country.name}}'>{{country.name}}</option>
   {{/each}}
   </select>
   </label>
