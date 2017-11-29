@@ -7,10 +7,24 @@
   max-height: 95px;
   white-space: nowrap;
   overflow-y: scroll;
-  width:80%;
+  width:88%;
+  display:inline-block;
+  margin:auto;
+}
+.scroll-arrow {
+  width: 5%;
+  position: relative;
+  bottom: 45px;
   display:inline-block;
 }
-
+#scroll-right {
+  // position: absolute;
+  // left: 0;
+}
+#scroll-left {
+  // position: absolute;
+  // right: 0;
+}
 .rg-image-nav a{
 	position:absolute;
 	top:0px;
