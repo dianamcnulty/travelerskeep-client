@@ -6,6 +6,7 @@ const vacationAPI = require('../API/vacation-api')
 const contentTemplate = require('../templates/content.handlebars')
 
 const goToNewVacation = function () {
+  console.log('clicked go')
   const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
   countryAPI.getAllCountries()
     .then((countries) => {
@@ -92,5 +93,6 @@ const mapViewHandlers = function () {
 
 module.exports = {
   mapViewHandlers,
+  goToNewVacation,
   backToMap
 }

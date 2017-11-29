@@ -10,13 +10,18 @@ h1 {
 .title{
   display: inline-block;
 }
+// .nav-link {
+//   background-color: beige;
+// }
 .navbar {
   background: rgba(0, 0, 0, 0.0);
   display:inline-block;
   float:right;
-  position:relative;
+  position:absolute;
   top:20px;
+  right: 20px;
   margin-bottom: 0;
+  z-index: 1000
 }
 .navbar-toggle {
   margin:auto;
