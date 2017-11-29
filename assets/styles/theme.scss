@@ -44,7 +44,6 @@ h1 {
   display: inline-block;
   float: left;
   width: 65%;
-  border: 1px #000 solid;
 }
 .story {
   max-height: 200px;
@@ -57,6 +56,16 @@ h1 {
   width: 80%;
   margin:auto;
   overflow: auto;
+  padding: 10px 25px;
+}
+.modal-content {
+  background-image:
+    url(/assets/images/distressedBG.jpg);
+  width: 80%;
+  margin:auto;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 0;
 }
 .content-page-boxes {
   width: 100%;
@@ -73,7 +82,13 @@ h1 {
   width:95%;
 }
 .danger-button {
-  background: $warning-text;
+  color: $warning-text;
+}
+textarea {
+  max-width: 95%;
+}
+.alert {
+  margin:0;
 }
 .success {
   color: $success-text;
@@ -81,11 +96,13 @@ h1 {
 .warning {
   color: $warning-text;
 }
-// button {
-//   background: rgba(225, 244, 244, 0.0);
-//   border: 2px dashed #937455;
-//   border-radius: 0px;
-//   height: 25px;
-//   cursor: pointer;
-//   margin: 5px;
-// }
+button, .button{
+  background: #EBE3D9;
+  border: 1px dashed #937455;
+  border-radius: 0px;
+  cursor: pointer;
+  margin: 5px;
+}
+.center-children {
+  text-align: center;
+}
