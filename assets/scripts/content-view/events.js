@@ -32,7 +32,6 @@ const showStory = function (event) {
     .then(response => {
       $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
     })
-    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your story, please try again.</span>'))
 }
 const goToStoryPhotos = function (event) {
   const vacation = {vacation: {id: event.target.dataset.id}}

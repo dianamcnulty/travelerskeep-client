@@ -1,16 +1,40 @@
 @import'./fonts';
 @import'./colors';
-html {
+.background {
   background-image: url(/assets/images/bgsea-balloon.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.sunset {
+  background-image: url(/assets/images/bgsunset.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 body {
   font-family: $paragraph-font;
   background-color: transparent;
+  color: $dark-brown;
+}
+hr {
+  border-color: $beige;
+}
+a {
+  color: $link-color;
+  cursor: pointer;
+}
+a:hover {
+  color: $link-color;
 }
 h1, .title{
   font-family: $headline-font;
+  color: $warm-brown;
+}
+input, select, textarea {
+  background-color: rgba(227, 237, 239, 0.8);
+  border-radius: 0;
+}
+select {
+  height: 25px;
 }
 .select-state {
   display: none;
@@ -20,6 +44,9 @@ h1, .title{
 }
 .quote {
   font-style: italic;
+}
+.light-text {
+  color: $beige;
 }
 // .nav-link {
 //   background-color: beige;
@@ -37,10 +64,20 @@ h1, .title{
 .navbar-toggle {
   margin:auto;
   border-radius: 0;
+  background-color: $pale-blue;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: $border-dash;
 }
 .navbar-default, .navbar-collapse {
   border:hidden;
 }
+.navbar-default .navbar-nav > li > a {
+  color: $link-color;
+}
+.navbar-collapse.in {
+    background-color: rgba(227, 237, 239, 0.8);
+  }
 .story-list {
   display: inline-block;
   float: right;
@@ -105,15 +142,40 @@ textarea {
   color: $warning-text;
 }
 .story {
-  border: 1px dashed #937455;
+  border: 1px dashed $border-dash;
 }
 button, .button{
-  background: #EBE3D9;
-  border: 1px dashed #937455;
+  background: $beige;
+  border: 1px dashed $border-dash;
   border-radius: 0px;
   cursor: pointer;
   margin: 5px;
 }
 .center-children {
   text-align: center;
+}
+@media screen and (min-width: 960px) {
+    .background {
+        background-position-y: -100px;
+    }
+    .sunset {
+      background-position-y: 0;
+    }
+    .navbar {
+      background-color: rgba(227, 237, 239, 0.8);
+    }
+}
+@media screen and (max-width: 600px) {
+  .background {
+      background-size: 600px;
+      background-position:top;
+  }
+  .sunset {
+    background-position-y: 0;
+  }
+}
+@media screen and (max-width: 474px) {
+  .light-mobile {
+    background-color: rgba(227, 237, 239, 0.8);
+  }
 }
