@@ -2,20 +2,25 @@
   <h2 style='display: inline-block;'>{{#if vacation.state}}
     {{vacation.state}},
     {{/if}}{{vacation.country}}: </h2><h4>{{#if vacation.month}} {{vacation.month}}, {{/if}}{{vacation.year}}</h4>
+  </div>
   <!-- carousel -->
+
   {{#if vacation.photos}}
-		<img id='scroll-right' style='height:20px;' src='https://png.icons8.com/?id=46409&size=540'>
+  <div class='content-page-container'>
+		<img id='scroll-right' class='scroll-arrow' src='https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/leftarrow.png?raw=true'>
     <div class="rg-image-wrapper">
 			<div class="rg-image-nav">
        {{#each vacation.photos as |photo|}}
-          <img class='thumb' style='height:75px;' data-url={{photo.img}} data-caption={{photo.caption}}  alt={{photo.caption}} src={{photo.img}}>
+          <img class='thumb' style='height:70px;' data-url={{photo.img}} data-caption={{photo.caption}}  alt={{photo.caption}} src={{photo.img}}>
         {{/each}}
 		</div>
     	</div>
-		<img id='scroll-left' style='height:20px;' src='https://png.icons8.com/?id=42895&size=540'>
+		<img id='scroll-left' class='scroll-arrow' src='https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/rightarrow.png?raw=true'>
+  </div>
 		{{/if}}
 
   <!--end carousel -->
+  <div class='content-page-container'>
   <section>
     <div class='feature' id='highlighted-content'>
       {{#if vacation.photos}}
