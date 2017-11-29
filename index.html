@@ -14,6 +14,7 @@
     <body class="container-fluid">
       <header>
         <h1 class='title'>Travelers Keep</h1>
+<!-- nav -->
         <nav id="nav" class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -23,19 +24,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <!-- <div id="navbar-header" class="navbar-brand"></div> -->
             </div>
             <div  class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a id='logout-nav' class = "nav-link">sign out</a></li>
                 <li><a id="map-nav" class = "nav-link">map</a></li>
-                <li><a id="password-nav" class = "nav-link">password</a></li>
+                <li><a id="password-nav" class = "nav-link" data-toggle="modal" data-target="#password-modal">account</a></li>
               </ul>
             </div>
           </div>
           </nav>
         </header>
-      <p id="section-alerts" class='alert'></p>
+      <p id="section-alerts" class='alert'>
       <div id='content-container'></div>
       <section id='map-view'>
         <p>Some quote about adventure or something</p>
@@ -51,7 +51,7 @@
           <button type=submit>Go!</button>
         </form>
       </section>
-<!-- delete modal-->
+<!-- delete vacation modal-->
       <div class="modal fade" id="delete-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -65,11 +65,58 @@
               <p id='delete-modal-alert'>Are you sure you want to delete this Adventure? All photos and stories associated with this trip will also be removed!</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn  nevermind" data-dismiss="modal">Nevermind.</button>
-              <button id='delete-vacation-cnfrm' type="button" class="btn" data-dismiss="modal">Delete it!</button>
+              <button type="button" class="nevermind" data-dismiss="modal">Nevermind.</button>
+              <button id='delete-vacation-cnfrm' type="button" class="danger-button" data-dismiss="modal">Delete it!</button>
             </div>
           </div>
         </div>
       </div>
+<!-- end delete modal -->
+<!-- password modal -->
+<div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="passwordModalLabel">Update your Password</h3>
+        <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id='delete-modal-alert'>To update your password, please enter your current password, then your new password and click "submit"</p>
+      </div>
+      <div class="modal-footer">
+        <span id='password-alert'></span>
+        <form id='update-password-form'>
+          <input id='oldpass' name="passwords[old]" type='password' placeholder="old password">
+          <input id='newpass' name="passwords[new]" type="password" placeholder="new password">
+          <br>
+          <input type='submit' id='password-update-submit' value='Save Changes'>
+        <form>
+        <button type="button" class="nevermind" data-dismiss="modal">Nevermind.</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- delete story modal -->
+<div class="modal fade" id="delete-story-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="deleteModalLabel">Delete your Adventure?</h3>
+        <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id='delete-modal-alert'>Are you sure you want to delete this Story? Once you confirm you can't get it back.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="nevermind" data-dismiss="modal">Nevermind.</button>
+        <button id='delete-story-cnfrm' type="button" class="danger-button" data-dismiss="modal">Delete it!</button>
+      </div>
+    </div>
+  </div>
+</div>
     </body>
 </html>
