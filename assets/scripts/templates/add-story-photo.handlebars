@@ -2,10 +2,10 @@
   <div>
 <h2>Include Stories and Photos</h2>
 <!-- add Photo -->
-<h3>Add Photos From Your Journey!</h3>
+<h4>Add Photos From Your Journey!</h4>
 <div id='photo-container'>
 <label class='success' id='photo-list-label'></label>
-</div><br>
+</div>
 <form id="photo-form" enctype="multipart/form-data">
   <fieldset>
     <input id='vacationID' type='hidden' name='photo[vacation_id]' value={{vacation.id}}>
@@ -19,10 +19,10 @@
 </form>
 <hr>
 <!-- add Story -->
-<h3>Add Stories About Your Adventures!</h3>
+<h4>Add Stories About Your Adventures!</h4>
 <div id='story-container'>
 <label class='success' id='story-list-label'></label><br>
-</div><br>
+</div>
 <form id='add-story'>
   <input type='hidden' name='story[vacation_id]' value={{vacation.id}}>
   <label>Title</label><br>
