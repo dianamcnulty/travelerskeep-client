@@ -22,6 +22,8 @@ const logInSuccess = function (data) {
   $('#section-alerts').html('')
   $('#content-container').html('')
   $('.background').removeClass('sunset')
+  // $('.background').removeClass('background-login')
+  $('.background').addClass('background-logged-in')
   map.renderMap()
   $('#map-view').show()
   $('#nav').show()

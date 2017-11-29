@@ -1,7 +1,12 @@
 @import'./fonts';
 @import'./colors';
-.background {
+.background{
   background-image: url(/assets/images/bgsea-balloon.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.background-logged-in {
+  background-image: url(/assets/images/bg-sea.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -95,7 +100,7 @@ select {
 }
 .modal-content {
   background-image:
-    url(/assets/images/distressedBG.jpg);
+    url(/assets/images/canvas.jpg);
   width: 80%;
   margin:auto;
   overflow: auto;
@@ -155,7 +160,7 @@ button, .button{
   text-align: center;
 }
 @media screen and (min-width: 960px) {
-    .background {
+    html {
         background-position-y: -100px;
     }
     .sunset {
