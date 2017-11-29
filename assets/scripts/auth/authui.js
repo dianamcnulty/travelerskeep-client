@@ -21,6 +21,7 @@ const logInSuccess = function (data) {
   $('.login').val('')
   $('#section-alerts').html('')
   $('#content-container').html('')
+  $('.background').removeClass('sunset')
   map.renderMap()
   $('#map-view').show()
   $('#nav').show()
@@ -34,6 +35,7 @@ const logOutSuccess = function (data) {
   $('#world-map').html('')
   $('#us-map').html('')
   $('#section-alerts').html('')
+  $('.background').addClass('sunset')
   $('#login-quote').html('"Let us step into the night and pursue that flighty temptress, adventure."<br>― J.K. Rowling, Harry Potter and the Half-Blood Prince')
 }
 const passwordSuccess = function (data) {
