@@ -1,7 +1,7 @@
 
 
 svg {
-  /*background-image: url('https://github.com/dianamcnulty/travelerskeep-client/blob/development/assets/images/parchment-bg.png?raw=true');*/
+  background-image: url(/assets/images/distressedBG.jpg);
   touch-action: none;
   padding:5px;
 }
