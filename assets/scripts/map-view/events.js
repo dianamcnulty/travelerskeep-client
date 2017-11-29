@@ -5,11 +5,12 @@ const map = require('./map')
 const vacationAPI = require('../API/vacation-api')
 const contentTemplate = require('../templates/content.handlebars')
 
-const goToNewVacation = function (event) {
+const goToNewVacation = function () {
   const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
   countryAPI.getAllCountries()
     .then((countries) => {
       $('#map-view').hide()
+      $('#section-alerts').html('')
       const places = {places: {nations: countries, states: states}}
       $('#content-container').html(newVacationTemplate(places))
     })
@@ -22,12 +23,16 @@ const goToCountry = function (event) {
     .then(vacation => {
       console.log('vacation is', vacation)
       $('#map-view').hide()
+      $('#world-map').html('')
+      $('#us-map').html('')
+      $('#section-alerts').html('')
       $('#content-container').html(contentTemplate(vacation))
     })
+    .catch($('#section-alerts').html('<span class="warning">We encountered an error retrieving your trip details, please try again.</span>'))
 }
 const backToMap = function () {
-  console.log('cancel button clicked')
   $('#content-container').html('')
+  $('#section-alerts').html('')
   $('#world-map').html('')
   map.renderMap()
   $('#map-view').show()
@@ -36,7 +41,6 @@ const onSelectRegion = function (e) {
   const selectedRegion = e.target.dataset.code
   vacationAPI.getAllVacations()
     .then((response) => {
-      console.log(response)
       if (selectedRegion === 'United States') {
         const statesVisited = {}
         const vacations = response.vacations
@@ -49,30 +53,30 @@ const onSelectRegion = function (e) {
             }
           }
         })
-        console.log('statesVisited is', statesVisited)
+        $('#section-alerts').html('')
         map.showUS(statesVisited)
       } else {
         const matching = []
         response.vacations.forEach((el) => {
           if (el.country === selectedRegion) {
             matching.push(el)
+          } else if (el.state === selectedRegion) {
+            matching.push(el)
           }
         })
-        if (matching.length === 0) {
-          response.vacations.forEach((el) => {
-            if (el.state === selectedRegion) {
-              matching.push(el)
-            }
-          })
-        }
-        if (matching.length === 1) {
-          console.log('matching is', matching)
+        if (matching.length >= 1) {
+          console.log('matching is 1', matching)
           vacationAPI.getOneVacation(matching[0].id)
             .then(vacation => {
               console.log('vacation is', vacation)
               $('#map-view').hide()
+              $('#section-alerts').html('')
               $('#content-container').html(contentTemplate(vacation))
             })
+        }
+        if (matching.length === 0) {
+          $('#section-alerts').html('')
+          goToNewVacation()
         }
         console.log('matching trips are', matching)
       }
@@ -83,6 +87,7 @@ const mapViewHandlers = function () {
   $('#map-nav').on('click', backToMap)
   $(document).on('submit', '#select-country', goToCountry)
   $(document).on('click', '.jvectormap-region', onSelectRegion)
+  $(document).on('click', '#show-world', backToMap)
 }
 
 module.exports = {

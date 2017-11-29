@@ -1,4 +1,5 @@
 @import'./fonts';
+@import'./colors';
 
 body {
   font-family: $paragraph-font;
@@ -34,7 +35,34 @@ h1 {
   display: inline-block;
   float: left;
   width: 65%;
-  border: 1px #fff solid
+  border: 1px #000 solid;
+}
+.story {
+  max-height: 200px;
+  overflow-x: scroll;
+}
+.content-page-container {
+  width: 80%;
+  margin:auto;
+}
+.feature-photo  {
+  width:100%;
+  margin:auto;
+}
+.caption {
+  text-align: center;
+}
+.sidebar-button {
+  width:95%;
+}
+.danger-button {
+  background: $warning-text;
+}
+.success {
+  color: $success-text;
+}
+.warning {
+  color: $warning-text;
 }
 // button {
 //   background: rgba(225, 244, 244, 0.0);
