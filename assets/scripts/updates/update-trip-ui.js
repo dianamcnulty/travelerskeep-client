@@ -19,6 +19,7 @@ const showEditVacation = function (vacation) {
       $('#year').val(trip.year)
       $('#companions').val(trip.companions)
       $('#vacation-id-input').val(trip.id)
+      $('#cancel-new-vacation').attr('data-id', trip.id)
     })
 }
 
