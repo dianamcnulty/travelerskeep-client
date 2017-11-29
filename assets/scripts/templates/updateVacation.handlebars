@@ -1,22 +1,26 @@
 <div class='content-page-container'>
   <div>
   <h3>Update the Details of Your Trip</h3>
+  <br>
 <form id='update-vacation-form'>
   <input id='vacation-id-input' type=hidden name='vacation[id]'>
-  <label>Country *</label>
+  <label>*Country:
   <select id='update-country'class='add-input' type='text' required='true' name='vacation[country]'>
   {{#each places.nations.countries as |country|}}
   <option id={{country.name}} value={{country.name}}>{{country.name}}</option>
   {{/each}}
   </select>
-  <label class='select-state' >State (if USA)</label>
+  </label>
+  <label class='select-state' >State (if USA):
   <select  class='add-input select-state' type='text' name='vacation[state]' placeholder="State">
     <option></option>
     {{#each places.states}}
     <option id="{{this}}" value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
-  <label>Month</label>
+  </label>
+  <br><br>
+  <label>Month:
   <select class='add-input' type='text' name='vacation[month]' placeholder='Month'>
     <option></option>
     <option id='January'>January</option>
@@ -32,13 +36,17 @@
     <option id='November'>November</option>
     <option id='December'>December</option>
   </select>
-  <label>Year *</label>
+  </label>
+  <label>*Year:
   <input id='year' class='add-input' type="number" name="vacation[year]" placeholder="Year" min=1900 max=2100>
-  <label>Companions</label>
-  <input id='companions' class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions'>
-  <br>
-  <input type="button" id='cancel-new-vacation' value="Cancel">
-  <input type='submit' value='save and continue'>
+  </label>
+  <br><br>
+  <label>Companions:
+  <input id='companions' class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions' style='width:350px; max-width:80%;'>
+  </label>
+  <br><br>
+  <input type="button" id='cancel-new-vacation' value="Cancel" class='button'>
+  <input type='submit' value='save and continue' class='button'>
 </form>
 </div>
 </div>
