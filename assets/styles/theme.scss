@@ -1,8 +1,13 @@
 @import'./fonts';
 @import'./colors';
-
+html {
+  background-image: url(/assets/images/bgsea-balloon.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 body {
   font-family: $paragraph-font;
+  background-color: transparent;
 }
 h1 {
   font-family: $headline-font;
@@ -34,7 +39,6 @@ h1 {
   display: inline-block;
   float: right;
   width: 32%;
-  border: 1px #fff solid
 }
 .feature {
   display: inline-block;
@@ -47,7 +51,15 @@ h1 {
   overflow-x: scroll;
 }
 .content-page-container {
+  background-image:
+    url(/assets/images/distressedBG.jpg);
+  min-height: 400px;
   width: 80%;
+  margin:auto;
+  overflow: auto;
+}
+.content-page-boxes {
+  width: 100%;
   margin:auto;
 }
 .feature-photo  {
