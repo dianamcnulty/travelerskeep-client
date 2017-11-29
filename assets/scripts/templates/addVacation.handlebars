@@ -1,21 +1,28 @@
+<p id='login-quote' class='quote'>“No, no! The adventures first, explanations take such a dreadful time.” <br>
+― Lewis Carroll, Alice's Adventures in Wonderland</p>
 <div class='content-page-container'>
 <h3>Add Your Adventure to Your Collection</h3>
+<br>
 <form id='add-vacation-form'>
-  <label>Country *</label>
+  <fieldset>
+  <label>*Country:
   <select id='select-country'class='add-input' type='text' required='true' name='vacation[country]' placeholder="Country">
     <option selected disabled>Select a Country</option>
   {{#each places.nations.countries as |country|}}
   <option value="{{country.name}}">{{country.name}}</option>
   {{/each}}
 </select>
-  <label class='select-state' >State (if USA)</label>
+</label>
+  <label class='select-state'>State (if USA):
   <select  class='add-input select-state' type='text' name='vacation[state]' placeholder="State">
     <option></option>
     {{#each places.states}}
     <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
-  <label>Month</label>
+  </label>
+  <br><br>
+  <label>Month:
   <select class='add-input' type='text' name='vacation[month]' placeholder='Month' value=''>
     <option></option>
     <option>January</option>
@@ -31,12 +38,18 @@
     <option>November</option>
     <option>December</option>
   </select>
-  <label>Year *</label>
+  </label>
+  <label>*Year:
   <input class='add-input' type="number" name="vacation[year]" placeholder="Year" min=1900 max=2100>
-  <label>Companions</label>
-  <input class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions'>
+  </label>
+  <br><br>
+  <label>Companions:
+  <input class='add-input' type='text' name='vacation[companions]' placeholder='Travel Companions' style='width:350px; max-width:80%;'>
+  </label>
   <br>
-  <input type="button" id='cancel-new-vacation' value="Cancel">
-  <input type='submit' value='save and continue'>
+  <br>
+  <input type="button" id='cancel-new-vacation' value="Cancel" class='button'>
+  <input type='submit' value='Save & Continue' class='button'>
+</fieldset>
 </form>
 </div>

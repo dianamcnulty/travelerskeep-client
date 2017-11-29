@@ -33,7 +33,8 @@ const logOutSuccess = function (data) {
   $('#nav').hide()
   $('#world-map').html('')
   $('#us-map').html('')
-  $('#section-alerts').html('<span class="success">logged out successfully</span>')
+  $('#section-alerts').html('')
+  $('#login-quote').html('"Let us step into the night and pursue that flighty temptress, adventure."<br>― J.K. Rowling, Harry Potter and the Half-Blood Prince')
 }
 const passwordSuccess = function (data) {
   $('#section-alerts').html('<span class="success">Your password has beeen updated. Please use your new password next time you log in.</span>')

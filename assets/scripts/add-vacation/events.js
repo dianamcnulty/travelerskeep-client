@@ -30,6 +30,14 @@ const sendToTrip = function (event) {
   const vacationId = event.target.dataset.vacationid
   updateEvents.sendToTrip(vacationId)
 }
+const showStateField = function (event) {
+  if ($('#select-country').val() === 'United States') {
+    $('.select-state').show()
+  } else {
+    $('.select-state').hide()
+    $('.select-state').val('')
+  }
+}
 const newVacationHandlers = function () {
   $('.add-input').val('')
   $('#new-nav').on('click', mapEvents.goToNewVacation)
@@ -39,14 +47,7 @@ const newVacationHandlers = function () {
   $(document).on('click', '#done', sendToTrip)
   $(document).on('click', '#skip', sendToTrip)
   $(document).on('submit', '#photo-form', photoAPI.createPhoto)
-  $(document).on('change', '#select-country', function () {
-    if ($('#select-country').val() === 'United States') {
-      $('.select-state').show()
-    } else {
-      $('.select-state').hide()
-      $('.select-state').val('')
-    }
-  })
+  $(document).on('change', '#select-country', showStateField)
 }
 module.exports = {
   newVacationHandlers

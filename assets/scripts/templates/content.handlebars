@@ -1,8 +1,8 @@
-<div class='content-page-container'>
+<div class='content-page-container' style='padding:10px 15px;'>
   <div class='content-page-boxes'>
-  <h2 style='display: inline-block;'>{{#if vacation.state}}
+  <h2 class='title' style='display: inline-block;  padding-right:6px;'>{{#if vacation.state}}
     {{vacation.state}},
-    {{/if}}{{vacation.country}}: </h2><h4>{{#if vacation.month}} {{vacation.month}}, {{/if}}{{vacation.year}}</h4>
+    {{/if}}{{vacation.country}}:  </h2><h3 style='display: inline-block;'>{{#if vacation.month}} {{vacation.month}}, {{/if}}  {{vacation.year}}</h3>
   </div>
   <!-- carousel -->
 
@@ -25,8 +25,10 @@
   <section>
     <div class='feature' id='highlighted-content'>
       {{#if vacation.photos}}
+      <div class='center-children'>
 <img class='feature-photo'  src={{vacation.photos.0.img}}>
 <p class='caption'>{{vacation.photos.0.caption}}</p>
+</div>
 {{else if vacation.stories}}
   <h3>{{vacation.stories.0.title}}</h3><br>
   <p class='story'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
@@ -54,7 +56,7 @@
         </ul>
       </div>
       {{/if}}
-      <button class='sidebar-button' id='add-story-photo' data-id='{{vacation.id}}'>Add Stories and Photos</button>
+      <button class='sidebar-button' id='add-story-photo' data-id='{{vacation.id}}'>Add Stories & Photos</button>
       <button class='sidebar-button' id='update-vacation-btn' data-id='{{vacation.id}}'>Edit Trip Details</button>
       <button class='sidebar-button danger-button' id='delete-vacation-btn' data-id="{{vacation.id}}" type="button" data-toggle="modal" data-target="#delete-vacation-modal">Delete Trip</button>
     </section>

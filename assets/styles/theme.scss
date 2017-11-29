@@ -9,11 +9,17 @@ body {
   font-family: $paragraph-font;
   background-color: transparent;
 }
-h1 {
+h1, .title{
   font-family: $headline-font;
+}
+.select-state {
+  display: none;
 }
 .title{
   display: inline-block;
+}
+.quote {
+  font-style: italic;
 }
 // .nav-link {
 //   background-color: beige;
@@ -40,31 +46,41 @@ h1 {
   float: right;
   width: 32%;
 }
-.feature {
-  display: inline-block;
-  float: left;
-  width: 65%;
-  border: 1px #000 solid;
-}
-.story {
-  max-height: 200px;
-  overflow-x: scroll;
-}
+
 .content-page-container {
   background-image:
     url(/assets/images/distressedBG.jpg);
-  min-height: 400px;
+  min-height: 300px;
   width: 80%;
   margin:auto;
   overflow: auto;
+  padding: 10px 25px;
+}
+.modal-content {
+  background-image:
+    url(/assets/images/distressedBG.jpg);
+  width: 80%;
+  margin:auto;
+  overflow: auto;
+  padding: 10px;
+  border-radius: 0;
 }
 .content-page-boxes {
   width: 100%;
   margin:auto;
 }
+.feature {
+  display: inline-block;
+  float: left;
+  width: 65%;
+}
+.story {
+  max-height: 200px;
+  overflow-x: scroll;
+}
 .feature-photo  {
-  width:100%;
-  margin:auto;
+  max-height:300px;
+  max-width:100%;
 }
 .caption {
   text-align: center;
@@ -73,7 +89,14 @@ h1 {
   width:95%;
 }
 .danger-button {
-  background: $warning-text;
+  color: $warning-text;
+}
+textarea {
+  max-width: 95%;
+  height:100px;
+}
+.alert {
+  margin:0;
 }
 .success {
   color: $success-text;
@@ -81,11 +104,16 @@ h1 {
 .warning {
   color: $warning-text;
 }
-// button {
-//   background: rgba(225, 244, 244, 0.0);
-//   border: 2px dashed #937455;
-//   border-radius: 0px;
-//   height: 25px;
-//   cursor: pointer;
-//   margin: 5px;
-// }
+.story {
+  border: 1px dashed #937455;
+}
+button, .button{
+  background: #EBE3D9;
+  border: 1px dashed #937455;
+  border-radius: 0px;
+  cursor: pointer;
+  margin: 5px;
+}
+.center-children {
+  text-align: center;
+}
