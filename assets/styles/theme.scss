@@ -12,6 +12,9 @@ body {
 h1 {
   font-family: $headline-font;
 }
+.select-state {
+  display: none;
+}
 .title{
   display: inline-block;
 }
