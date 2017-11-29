@@ -1,7 +1,12 @@
 @import'./fonts';
 @import'./colors';
-html {
+.background {
   background-image: url(/assets/images/bgsea-balloon.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.sunset {
+  background-image: url(/assets/images/bgsunset.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -148,4 +153,29 @@ button, .button{
 }
 .center-children {
   text-align: center;
+}
+@media screen and (min-width: 960px) {
+    .background {
+        background-position-y: -100px;
+    }
+    .sunset {
+      background-position-y: 0;
+    }
+    .navbar {
+      background-color: rgba(227, 237, 239, 0.8);
+    }
+}
+@media screen and (max-width: 600px) {
+  .background {
+      background-size: 600px;
+      background-position:top;
+  }
+  .sunset {
+    background-position-y: 0;
+  }
+}
+@media screen and (max-width: 474px) {
+  .light-mobile {
+    background-color: rgba(227, 237, 239, 0.8);
+  }
 }
