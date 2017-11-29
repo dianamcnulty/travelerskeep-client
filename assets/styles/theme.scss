@@ -9,7 +9,7 @@ body {
   font-family: $paragraph-font;
   background-color: transparent;
 }
-h1 {
+h1, .title{
   font-family: $headline-font;
 }
 .select-state {
@@ -17,6 +17,9 @@ h1 {
 }
 .title{
   display: inline-block;
+}
+.quote {
+  font-style: italic;
 }
 // .nav-link {
 //   background-color: beige;
@@ -43,19 +46,11 @@ h1 {
   float: right;
   width: 32%;
 }
-.feature {
-  display: inline-block;
-  float: left;
-  width: 65%;
-}
-.story {
-  max-height: 200px;
-  overflow-x: scroll;
-}
+
 .content-page-container {
   background-image:
     url(/assets/images/distressedBG.jpg);
-  min-height: 400px;
+  min-height: 300px;
   width: 80%;
   margin:auto;
   overflow: auto;
@@ -74,9 +69,18 @@ h1 {
   width: 100%;
   margin:auto;
 }
+.feature {
+  display: inline-block;
+  float: left;
+  width: 65%;
+}
+.story {
+  max-height: 200px;
+  overflow-x: scroll;
+}
 .feature-photo  {
-  width:100%;
-  margin:auto;
+  max-height:300px;
+  max-width:100%;
 }
 .caption {
   text-align: center;
@@ -89,6 +93,7 @@ h1 {
 }
 textarea {
   max-width: 95%;
+  height:100px;
 }
 .alert {
   margin:0;
@@ -98,6 +103,9 @@ textarea {
 }
 .warning {
   color: $warning-text;
+}
+.story {
+  border: 1px dashed #937455;
 }
 button, .button{
   background: #EBE3D9;
