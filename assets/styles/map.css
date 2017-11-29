@@ -17,7 +17,7 @@ svg {
 .jvectormap-tip {
     position: absolute;
     display: none;
-    border: solid 1px #CDCDCD;
+    border: dashed 1px #937455;
     background: #92a050;
     color: black;
     font-family: sans-serif, Verdana;
