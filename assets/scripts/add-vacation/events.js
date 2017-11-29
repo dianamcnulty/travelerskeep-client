@@ -32,6 +32,7 @@ const sendToTrip = function (event) {
 }
 const newVacationHandlers = function () {
   $('.add-input').val('')
+  $('#new-nav').on('click', mapEvents.goToNewVacation)
   $(document).on('submit', '#add-vacation-form', onCreateVacation)
   $(document).on('click', '#cancel-new-vacation', mapEvents.backToMap)
   $(document).on('submit', '#add-story', onSaveStory)

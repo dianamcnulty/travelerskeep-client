@@ -1,4 +1,5 @@
 <div class='content-page-container'>
+  <div class='content-page-boxes'>
   <h2 style='display: inline-block;'>{{#if vacation.state}}
     {{vacation.state}},
     {{/if}}{{vacation.country}}: </h2><h4>{{#if vacation.month}} {{vacation.month}}, {{/if}}{{vacation.year}}</h4>
@@ -6,8 +7,8 @@
   <!-- carousel -->
 
   {{#if vacation.photos}}
-  <div class='content-page-container'>
-		<img id='scroll-right' class='scroll-arrow' src='https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/leftarrow.png?raw=true'>
+  <div class='content-page-boxes'>
+		<img id='scroll-right' class='scroll-arrow' src='/assets/images/leftarrow.png'>
     <div class="rg-image-wrapper">
 			<div class="rg-image-nav">
        {{#each vacation.photos as |photo|}}
@@ -15,12 +16,12 @@
         {{/each}}
 		</div>
     	</div>
-		<img id='scroll-left' class='scroll-arrow' src='https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/rightarrow.png?raw=true'>
+		<img id='scroll-left' class='scroll-arrow' src='/assets/images/rightarrow.png'>
   </div>
 		{{/if}}
 
   <!--end carousel -->
-  <div class='content-page-container'>
+  <div class='content-page-boxes'>
   <section>
     <div class='feature' id='highlighted-content'>
       {{#if vacation.photos}}
@@ -57,4 +58,5 @@
       <button class='sidebar-button' id='update-vacation-btn' data-id='{{vacation.id}}'>Edit Trip Details</button>
       <button class='sidebar-button danger-button' id='delete-vacation-btn' data-id="{{vacation.id}}" type="button" data-toggle="modal" data-target="#delete-vacation-modal">Delete Trip</button>
     </section>
+</div>
 </div>
