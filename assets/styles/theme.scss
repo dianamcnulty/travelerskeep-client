@@ -1,17 +1,17 @@
 @import'./fonts';
 @import'./colors';
 .background{
-  background-image: url(/assets/images/bgsea-balloon.png);
+  background-image: url('https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/bgsea-balloon.png?raw=true');
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .background-logged-in {
-  background-image: url(/assets/images/bg-sea.jpg);
+  background-image: url('https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/bg-sea.jpg?raw=true');
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .sunset {
-  background-image: url(/assets/images/bgsunset.png);
+  background-image: url('https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/bgsunset.png?raw=true');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -91,7 +91,7 @@ select {
 
 .content-page-container {
   background-image:
-    url(/assets/images/distressedBG.jpg);
+    url('https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/distressedBG.jpg?raw=true');
   min-height: 300px;
   width: 80%;
   margin:auto;
@@ -100,7 +100,7 @@ select {
 }
 .modal-content {
   background-image:
-    url(/assets/images/canvas.jpg);
+    url('https://github.com/dianamcnulty/travelerskeep-client/blob/master/assets/images/canvas.jpg?raw=true');
   width: 80%;
   margin:auto;
   overflow: auto;
