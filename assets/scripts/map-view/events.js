@@ -6,7 +6,6 @@ const vacationAPI = require('../API/vacation-api')
 const contentTemplate = require('../templates/content.handlebars')
 
 const goToNewVacation = function () {
-  console.log('clicked go')
   const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
   countryAPI.getAllCountries()
     .then((countries) => {
@@ -19,10 +18,8 @@ const goToNewVacation = function () {
 const goToCountry = function (event) {
   event.preventDefault()
   const vacationId = $(this).find(':selected').data('id')
-  console.log('clicked go button. vacation id is', vacationId)
   vacationAPI.getOneVacation(vacationId)
     .then(vacation => {
-      console.log('vacation is', vacation)
       $('#map-view').hide()
       $('#world-map').html('')
       $('#us-map').html('')
@@ -66,10 +63,8 @@ const onSelectRegion = function (e) {
           }
         })
         if (matching.length >= 1) {
-          console.log('matching is 1', matching)
           vacationAPI.getOneVacation(matching[0].id)
             .then(vacation => {
-              console.log('vacation is', vacation)
               $('#map-view').hide()
               $('#section-alerts').html('')
               $('#content-container').html(contentTemplate(vacation))
@@ -79,7 +74,6 @@ const onSelectRegion = function (e) {
           $('#section-alerts').html('')
           goToNewVacation()
         }
-        console.log('matching trips are', matching)
       }
     })
 }
