@@ -40,6 +40,7 @@ const cancelUpdate = function (event) {
   $('#section-alerts').html('')
 }
 const onDeleteStory = function (event) {
+  // when user clicks the button to open the delete modal, send the vacation id to the confirm delete button within the modal
   const vacationId = $('#delete-story-btn').attr('data-vacation')
   const storyId = $('#delete-story-btn').attr('data-id')
   storyAPI.deleteStory(storyId)

@@ -5,12 +5,11 @@ const addVacationUi = require('../add-vacation/addvacation-ui')
 
 const createPhoto = function (e) {
   e.preventDefault()
-  // creates a new instance of the FileReader object prototype
+  // creates a new instance of the FileReader JS prototype
   const reader = new FileReader()
 
-  // setting a function to be executed every time the reader successfully completes a read operation
+  // every time the reader finishes a read operation do this:
   reader.onload = function (event) {
-    // once the data url has been loaded, make the ajax request with the result set as the value to key 'poster'
     $.ajax({
       url: config.apiOrigin + '/photos',
       method: 'POST',
@@ -20,16 +19,18 @@ const createPhoto = function (e) {
       data: { photo: {
         caption: $('#caption').val(),
         vacation_id: $('#vacationID').val(),
-        img: event.target.result
+        img: event.target.result // result of reading the file
       }}
+      // I probably could have used .then and .catch here. The example did it this way and it works...
     }).done(function (response) {
       const caption = response.photo.caption
       addVacationUi.addPhotoSuccess(caption)
     }).fail(function (response) {
     })
   }
-  // read the first file of the file input
+  // read the first file of the file input field
   const fileInput = $('#img')
+  // invokes the reader
   reader.readAsDataURL(fileInput[0].files[0])
 }
 

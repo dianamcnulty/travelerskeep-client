@@ -6,6 +6,7 @@ const signUpBehavior = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.signUp(data)
+    // log user in if signup is successful
     .then(() => api.logIn(data))
     .then(authui.logInSuccess)
     .catch(authui.signUpFail)
@@ -20,7 +21,7 @@ const logInBehavior = function (event) {
 const logOutBehavior = function () {
   api.logOut()
     .then(authui.logOutSuccess)
-    .catch(() => $('#password.message').text('Whoops, there was an error logging out. Please try that again.'))
+    .catch(() => $('#section-alerts').html('<p class="warning">Whoops, there was an error logging out. Please try that again.</p>'))
 }
 const passwordBehavior = function (event) {
   event.preventDefault()

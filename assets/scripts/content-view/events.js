@@ -33,6 +33,11 @@ const showStory = function (event) {
       $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
     })
 }
+const showImage = function (event) {
+  const url = event.target.dataset.url
+  const caption = event.target.dataset.caption
+  $('#highlighted-content').html("<div class='center-children'><img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p></div>')
+}
 const goToStoryPhotos = function (event) {
   const vacation = {vacation: {id: event.target.dataset.id}}
   $('#section-alerts').html('')
@@ -46,6 +51,7 @@ const goEditStory = function (event) {
       $('#content-container').html(editStoryTemplate(response))
     })
 }
+// scrolls the image carousel when the adorable paper airplanes are clicked.
 const scrollLeft = function () {
   const currentPosition = $('.rg-image-wrapper').scrollLeft()
   $('.rg-image-wrapper').scrollLeft(currentPosition + 40)
@@ -54,11 +60,7 @@ const scrollRight = function () {
   const currentPosition = $('.rg-image-wrapper').scrollLeft()
   $('.rg-image-wrapper').scrollLeft(currentPosition - 40)
 }
-const showImage = function (event) {
-  const url = event.target.dataset.url
-  const caption = event.target.dataset.caption
-  $('#highlighted-content').html("<div class='center-children'><img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p></div>')
-}
+
 const contentViewHandlers = function () {
   $(document).on('click', '#delete-vacation-cnfrm', deleteVacation)
   $(document).on('click', '#update-vacation-btn', editVacation)

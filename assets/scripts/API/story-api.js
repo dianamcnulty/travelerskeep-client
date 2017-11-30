@@ -2,7 +2,7 @@ const config = require('../config')
 const store = require('../store')
 
 // pass in "data" to form
-// when ajax is called set data first with this: const data = getFormFields(this)
+// when these functions are called, set data first with this: const data = getFormFields(this)
 const createStory = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/stories',
