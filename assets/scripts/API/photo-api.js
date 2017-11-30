@@ -26,10 +26,8 @@ const createPhoto = function (e) {
       const caption = response.photo.caption
       addVacationUi.addPhotoSuccess(caption)
     }).fail(function (response) {
-      console.error('Awww crud!!')
     })
   }
-
   // read the first file of the file input
   const fileInput = $('#img')
   reader.readAsDataURL(fileInput[0].files[0])

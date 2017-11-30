@@ -16,14 +16,18 @@ const onCreateVacation = function (event) {
       $('#content-container').html(storyPhotoTemplate(response))
       $('#section-alerts').html('<p class="success">Trip Details Saved Successfully</p>')
     })
-    .catch(console.error)
+    .catch(() => {
+      $('#section-alerts').html('<p class="success">We were unable to create your vacation. Please Try again.</p>')
+    })
 }
 const onSaveStory = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   storyAPI.createStory(data)
     .then(addVacationUI.addStorySuccess)
-    .catch(console.error)
+    .catch(() => {
+      $('#section-alerts').html('<p class="success">We were unable to save your stroy. Please Try again.</p>')
+    })
 }
 const sendToSendToTrip = function (event) {
   $('#section-alerts').html('')

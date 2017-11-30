@@ -16,7 +16,6 @@ const logInFail = function () {
   $('.login').val('')
 }
 const logInSuccess = function (data) {
-  console.log('log in success')
   store.user = data.user
   $('.login').val('')
   $('#section-alerts').html('')
