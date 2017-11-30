@@ -25,10 +25,10 @@
   <section>
     <div class='feature' id='highlighted-content'>
       {{#if vacation.photos}}
-      <div class='center-children'>
-<img class='feature-photo'  src={{vacation.photos.0.img}}>
-<p class='caption'>{{vacation.photos.0.caption}}</p>
-</div>
+    <div class='center-children'>
+      <img class='feature-photo'  src={{vacation.photos.0.img}}>
+      <p class='caption'>{{vacation.photos.0.caption}}</p>
+    </div>
 {{else if vacation.stories}}
   <h3>{{vacation.stories.0.title}}</h3><br>
   <p class='story'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
