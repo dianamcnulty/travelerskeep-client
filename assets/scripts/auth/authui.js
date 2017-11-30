@@ -16,13 +16,12 @@ const logInFail = function () {
   $('.login').val('')
 }
 const logInSuccess = function (data) {
-  console.log('log in success')
   store.user = data.user
   $('.login').val('')
   $('#section-alerts').html('')
   $('#content-container').html('')
+  // the pretty background on login was too cluttered  in the rest of the app. used classes to change background.
   $('.background').removeClass('sunset')
-  // $('.background').removeClass('background-login')
   $('.background').addClass('background-logged-in')
   map.renderMap()
   $('#map-view').show()

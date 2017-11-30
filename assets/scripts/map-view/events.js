@@ -6,15 +6,19 @@ const vacationAPI = require('../API/vacation-api')
 const contentTemplate = require('../templates/content.handlebars')
 
 const goToNewVacation = function () {
+  // this array should eventually be moved to an API resource. It's used in 2 places.
   const states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+  // get countries to populate country dropdown
   countryAPI.getAllCountries()
     .then((countries) => {
       $('#map-view').hide()
       $('#section-alerts').html('')
+      // reformat our response so we can send both states and countries to the template
       const places = {places: {nations: countries, states: states}}
       $('#content-container').html(newVacationTemplate(places))
     })
 }
+// bring user to their vacation content page.
 const goToCountry = function (event) {
   event.preventDefault()
   const vacationId = $(this).find(':selected').data('id')
@@ -36,10 +40,13 @@ const backToMap = function () {
   map.renderMap()
   $('#map-view').show()
 }
+// this controls what happens when a user clicks a section of the map:
 const onSelectRegion = function (e) {
   const selectedRegion = e.target.dataset.code
+  // get vacations to determine if users have been to that region
   vacationAPI.getAllVacations()
     .then((response) => {
+      // if user selected USA, find out which states they've visited and render drill down map of states colored appropriately
       if (selectedRegion === 'United States') {
         const statesVisited = {}
         const vacations = response.vacations
@@ -55,6 +62,7 @@ const onSelectRegion = function (e) {
         $('#section-alerts').html('')
         map.showUS(statesVisited)
       } else {
+        // if they pick a country that isn't USA find out if they've visited multiple times.
         const matching = []
         response.vacations.forEach((el) => {
           if (el.country === selectedRegion) {
@@ -63,6 +71,7 @@ const onSelectRegion = function (e) {
             matching.push(el)
           }
         })
+        // if they've been to a region send them to vacation details on click
         if (matching.length >= 1) {
           vacationAPI.getOneVacation(matching[0].id)
             .then(vacation => {
@@ -71,6 +80,7 @@ const onSelectRegion = function (e) {
               $('#content-container').html(contentTemplate(vacation))
             })
         }
+        // if they've never been to the region send them to 'add vacation' page
         if (matching.length === 0) {
           $('#section-alerts').html('')
           goToNewVacation()

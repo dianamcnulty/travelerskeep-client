@@ -9,6 +9,7 @@ const renderMap = function () {
   const countriesVisited = {}
   vacationAPI.getAllVacations()
     .then(response => {
+      // populate the vacation dropdown with the users vacations so they can choose from there if they want.
       $('#vacation-dropdown').html('')
       if (response.vacations.length > 0) {
         $('#choose-trip').show()
@@ -21,12 +22,15 @@ const renderMap = function () {
           }
         })
       } else {
+        // if they have no vacations, hide the dropdown
         $('#choose-trip').hide()
       }
+      // hide the button that returns a user to 'world' if they're on the US map
       $('#show-world').hide()
       $('#world-map').show()
       $('#us-map').hide()
       $('#world-map').vectorMap({
+        // these specifications are passed to the vectorMap JS and the map is render.
         map: 'world_mill',
         series: {
           regions: [{
@@ -38,12 +42,12 @@ const renderMap = function () {
             Max: 1
           }]
         },
+        // this controls what a user sees when they hover over a map section
         onRegionTipShow: function (e, el, year) {
           if (!countriesVisited[year]) {
             el.html('Have you been to ' + el.html() + '? Click to add your memories to your collection.')
           } else if (countriesVisited[year].length === 1) {
             el.html('You were in ' + el.html() + ' in ' + countriesVisited[year].toString() + ' Click to see your trip')
-            // console.log('visited is', e.target.dataset.visited)
           } else if (countriesVisited[year].length > 1) {
             el.html('You have been to ' + el.html() + ' several times! Click to see memories from your first trip here. To see other trips to ' + el.html() + ', select one from the dropdown below.')
           }
@@ -51,23 +55,8 @@ const renderMap = function () {
       })
     })
 }
-// $(() => {
-//   $('.jvectormap-region').on('click', (e) => {
-//     console.log('country code is', e.target.dataset.code)
-//     if (e.target.dataset.code === 'US'){
-//       showUS()
-//     }
-//   })
-// })
-// $(() => {
-//   $('#show-world').on('click',()=>{
-//     $('#world-map').show()
-//     $('#show-world').hide()
-//     $('#us-map').html('')
-//   })
-// })
+// all the same as above but for USA
 const showUS = function (statesVisited) {
-  console.log('showing US. states are:', statesVisited)
   $('#world-map').hide()
   $('#us-map').html('')
   $('#us-map').show()
