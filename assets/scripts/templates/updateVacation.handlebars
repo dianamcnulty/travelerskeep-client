@@ -9,7 +9,7 @@
   <label>*Country:
   <select id='select-country'class='add-input' type='text' required='true' name='vacation[country]'>
   {{#each places.nations.countries as |country|}}
-  <option id={{country.name}} value='{{country.name}}'>{{country.name}}</option>
+  <option id={{country.idValue}} value='{{country.name}}'>{{country.name}}</option>
   {{/each}}
   </select>
   </label>
