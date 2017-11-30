@@ -43,7 +43,6 @@ const renderMap = function () {
             el.html('Have you been to ' + el.html() + '? Click to add your memories to your collection.')
           } else if (countriesVisited[year].length === 1) {
             el.html('You were in ' + el.html() + ' in ' + countriesVisited[year].toString() + ' Click to see your trip')
-            // console.log('visited is', e.target.dataset.visited)
           } else if (countriesVisited[year].length > 1) {
             el.html('You have been to ' + el.html() + ' several times! Click to see memories from your first trip here. To see other trips to ' + el.html() + ', select one from the dropdown below.')
           }
@@ -51,23 +50,7 @@ const renderMap = function () {
       })
     })
 }
-// $(() => {
-//   $('.jvectormap-region').on('click', (e) => {
-//     console.log('country code is', e.target.dataset.code)
-//     if (e.target.dataset.code === 'US'){
-//       showUS()
-//     }
-//   })
-// })
-// $(() => {
-//   $('#show-world').on('click',()=>{
-//     $('#world-map').show()
-//     $('#show-world').hide()
-//     $('#us-map').html('')
-//   })
-// })
 const showUS = function (statesVisited) {
-  console.log('showing US. states are:', statesVisited)
   $('#world-map').hide()
   $('#us-map').html('')
   $('#us-map').show()
