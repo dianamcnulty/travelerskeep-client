@@ -1,48 +1,46 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Traveler's Keep
 
-# browser-template
+## Description
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
 
-## Installation
+## Project Links
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
 
-## Structure
+## Dependencies/Technologies
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+  #### Third Party Libraries
+  This application relies on jVectormap. Documentation and other information can be found at http://jvectormap.com/. The vector files (world map and us map) that were integrated into this application have been altered: The country and state codes were updated to interact more seamlessly with the API for this project.
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+  Required files:
+  jquery-jvectormap-2.0.3.min.js (javascript library for rendering/interacting with the map)
+  jquery-jvectormap-us-aea.js (provides vector details for the US map)
+  jquery-jvectormap-world-mill.js (provides vector details for the world map)
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
+  #### NPM dependencies
+  -Bootstrap (used for modals)
+  -Handlebars
+  -jQuery
 
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
+  Install dependencies with `npm install`.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+  #### Other
+  This project was started with a browser template that was provided by General Assembly.
 
-## Tasks
+## Development Process
+
+### Planning Documentation
+
+#### Wireframes
+- Log-in page: https://wireframe.cc/OvL3Pn
+- Map view: https://wireframe.cc/UroGcm
+- Content view: https://wireframe.cc/uuAecI
+- Add content view: https://wireframe.cc/c1vVE5
+- Update view: https://wireframe.cc/AM9pjj
+
+#### Backlog
+https://trello.com/b/4VbYwsnP/travelers-keep
+
+##
 
 Developers should run these often!
 
@@ -54,8 +52,4 @@ Developers should run these often!
 -   `grunt build`: place bundled styles and scripts where `index.html` can find
     them
 
-## [License](LICENSE)
-
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+##
