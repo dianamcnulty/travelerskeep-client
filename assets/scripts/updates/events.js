@@ -15,7 +15,6 @@ const sendToTrip = function (id) {
 const onUpdateTrip = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('updateData is', data)
   const id = data.vacation.id
   vacationAPI.updateVacation(data)
     .then((response) => {
@@ -27,7 +26,6 @@ const onUpdateTrip = function (event) {
 const onEditStory = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('clicked submit edit story data is', data)
   storyAPI.updateStory(data)
     .then(response => {
       const id = response.story.vacation.id
@@ -56,7 +54,6 @@ const updateViewHandlers = function () {
   $(document).on('submit', '#edit-story', onEditStory)
   $(document).on('click', '#cancel-update-story', cancelUpdate)
   $(document).on('click', '#delete-story-cnfrm', onDeleteStory)
-  $(document).on('click', '#cancel-new-vacation', cancelUpdate)
 }
 
 module.exports = {

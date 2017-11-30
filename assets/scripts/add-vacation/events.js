@@ -13,20 +13,18 @@ const onCreateVacation = function (event) {
   const data = getFormFields(this)
   vacationAPI.createVacation(data)
     .then((response) => {
-      console.log('Vacation data is', response)
       $('#content-container').html(storyPhotoTemplate(response))
     })
-    .catch((response) => console.log('fail!'))
+    .catch(console.error)
 }
 const onSaveStory = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('story data is', data)
   storyAPI.createStory(data)
     .then(addVacationUI.addStorySuccess)
     .catch(console.error)
 }
-const sendToTrip = function (event) {
+const sendToSendToTrip = function (event) {
   const vacationId = event.target.dataset.vacationid
   updateEvents.sendToTrip(vacationId)
 }
@@ -44,8 +42,8 @@ const newVacationHandlers = function () {
   $(document).on('submit', '#add-vacation-form', onCreateVacation)
   $(document).on('click', '#cancel-new-vacation', mapEvents.backToMap)
   $(document).on('submit', '#add-story', onSaveStory)
-  $(document).on('click', '#done', sendToTrip)
-  $(document).on('click', '#skip', sendToTrip)
+  $(document).on('click', '#done', sendToSendToTrip)
+  $(document).on('click', '#skip', sendToSendToTrip)
   $(document).on('submit', '#photo-form', photoAPI.createPhoto)
   $(document).on('change', '#select-country', showStateField)
 }

@@ -57,7 +57,6 @@ const scrollRight = function () {
 const showImage = function (event) {
   const url = event.target.dataset.url
   const caption = event.target.dataset.caption
-  console.log('caption is', caption)
   $('#highlighted-content').html("<img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p>')
 }
 const contentViewHandlers = function () {

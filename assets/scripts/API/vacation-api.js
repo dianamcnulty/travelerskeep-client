@@ -4,7 +4,6 @@ const store = require('../store')
 // pass in "data" to form
 // when ajax is called set data first with this: const data = getFormFields(this)
 const createVacation = function (data) {
-  console.log('ajax call runs')
   return $.ajax({
     url: config.apiOrigin + '/vacations',
     method: 'POST',
@@ -34,7 +33,6 @@ const getOneVacation = function (id) {
   })
 }
 const updateVacation = function (data) {
-  console.log('api call is running data is', data)
   const id = parseInt(data['vacation']['id'])
   return $.ajax({
     url: config.apiOrigin + '/vacations/' + id,
