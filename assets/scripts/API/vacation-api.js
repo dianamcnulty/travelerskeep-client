@@ -1,8 +1,6 @@
 const config = require('../config')
 const store = require('../store')
 
-// pass in "data" to form
-// when ajax is called set data first with this: const data = getFormFields(this)
 const createVacation = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/vacations',

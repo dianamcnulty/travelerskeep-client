@@ -13,6 +13,7 @@ const onCreateVacation = function (event) {
   const data = getFormFields(this)
   vacationAPI.createVacation(data)
     .then((response) => {
+      // on success take user to next page to add photos and stories to the trip
       $('#content-container').html(storyPhotoTemplate(response))
       $('#section-alerts').html('<p class="success">Trip Details Saved Successfully</p>')
     })
@@ -24,16 +25,20 @@ const onSaveStory = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   storyAPI.createStory(data)
+    // user will stay on the same page, but see a list of stories that were added.
+    // this is so they can add more than one.
     .then(addVacationUI.addStorySuccess)
     .catch(() => {
       $('#section-alerts').html('<p class="success">We were unable to save your stroy. Please Try again.</p>')
     })
 }
+// terrible name... this takes the id from the click event and passes it through the 'sendToTrip function.'
 const sendToSendToTrip = function (event) {
   $('#section-alerts').html('')
   const vacationId = event.target.dataset.vacationid
   updateEvents.sendToTrip(vacationId)
 }
+// state dropdown is dynamic, only displays for USA
 const showStateField = function (event) {
   if ($('#select-country').val() === 'United States') {
     $('.select-state').show()

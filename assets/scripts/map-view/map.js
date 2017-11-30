@@ -9,6 +9,7 @@ const renderMap = function () {
   const countriesVisited = {}
   vacationAPI.getAllVacations()
     .then(response => {
+      // populate the vacation dropdown with the users vacations so they can choose from there if they want.
       $('#vacation-dropdown').html('')
       if (response.vacations.length > 0) {
         $('#choose-trip').show()
@@ -21,12 +22,15 @@ const renderMap = function () {
           }
         })
       } else {
+        // if they have no vacations, hide the dropdown
         $('#choose-trip').hide()
       }
+      // hide the button that returns a user to 'world' if they're on the US map
       $('#show-world').hide()
       $('#world-map').show()
       $('#us-map').hide()
       $('#world-map').vectorMap({
+        // these specifications are passed to the vectorMap JS and the map is render.
         map: 'world_mill',
         series: {
           regions: [{
@@ -38,6 +42,7 @@ const renderMap = function () {
             Max: 1
           }]
         },
+        // this controls what a user sees when they hover over a map section
         onRegionTipShow: function (e, el, year) {
           if (!countriesVisited[year]) {
             el.html('Have you been to ' + el.html() + '? Click to add your memories to your collection.')
@@ -50,6 +55,7 @@ const renderMap = function () {
       })
     })
 }
+// all the same as above but for USA
 const showUS = function (statesVisited) {
   $('#world-map').hide()
   $('#us-map').html('')
