@@ -10,15 +10,19 @@ const renderMap = function () {
   vacationAPI.getAllVacations()
     .then(response => {
       $('#vacation-dropdown').html('')
-      response.vacations.forEach((vacation) => {
-        $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.state + ' ' + vacation.country + ', ' + vacation.year + '</option>')
-        if (!countriesVisited[vacation.country]) {
-          countriesVisited[vacation.country] = [vacation.year]
-        } else {
-          countriesVisited[vacation.country].push(vacation.year)
-        }
-      })
-      console.log('countriesVisited is', countriesVisited)
+      if (response.vacations.length > 0) {
+        $('#choose-trip').show()
+        response.vacations.forEach((vacation) => {
+          $('#vacation-dropdown').prepend("<option data-id='" + vacation.id + "'>" + vacation.state + ' ' + vacation.country + ', ' + vacation.year + '</option>')
+          if (!countriesVisited[vacation.country]) {
+            countriesVisited[vacation.country] = [vacation.year]
+          } else {
+            countriesVisited[vacation.country].push(vacation.year)
+          }
+        })
+      } else {
+        $('#choose-trip').hide()
+      }
       $('#show-world').hide()
       $('#world-map').show()
       $('#us-map').hide()
