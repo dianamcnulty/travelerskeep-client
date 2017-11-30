@@ -57,7 +57,7 @@ const scrollRight = function () {
 const showImage = function (event) {
   const url = event.target.dataset.url
   const caption = event.target.dataset.caption
-  $('#highlighted-content').html("<img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p>')
+  $('#highlighted-content').html("<div class='center-children'><img class='feature-photo' src='" + url + "'><p class='caption'>" + caption + '</p></div>')
 }
 const contentViewHandlers = function () {
   $(document).on('click', '#delete-vacation-cnfrm', deleteVacation)
