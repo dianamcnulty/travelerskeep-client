@@ -80,9 +80,7 @@ select {
 .navbar-default .navbar-nav > li > a {
   color: $link-color;
 }
-.navbar-collapse.in {
-    background-color: rgba(227, 237, 239, 0.8);
-  }
+
 .story-list {
   display: inline-block;
   float: right;
@@ -180,4 +178,12 @@ button, .button{
   .light-mobile {
     background-color: rgba(227, 237, 239, 0.8);
   }
+  .navbar-collapse.in {
+      background-color: rgba(227, 237, 239, 0.8);
+    }
+}
+@media screen and (max-width: 766px) {
+  .navbar-collapse.in {
+      background-color: rgba(227, 237, 239, 0.8);
+    }
 }

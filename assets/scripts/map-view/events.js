@@ -31,6 +31,7 @@ const goToCountry = function (event) {
 const backToMap = function () {
   $('#content-container').html('')
   $('#section-alerts').html('')
+  $('#us-map').html('')
   $('#world-map').html('')
   map.renderMap()
   $('#map-view').show()
@@ -80,7 +81,7 @@ const onSelectRegion = function (e) {
 const mapViewHandlers = function () {
   $(document).on('click', '#add-vacation', goToNewVacation)
   $('#map-nav').on('click', backToMap)
-  $(document).on('submit', '#select-country', goToCountry)
+  $(document).on('submit', '#select-vacation', goToCountry)
   $(document).on('click', '.jvectormap-region', onSelectRegion)
   $(document).on('click', '#show-world', backToMap)
 }
