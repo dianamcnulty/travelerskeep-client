@@ -14,6 +14,7 @@ const onCreateVacation = function (event) {
   vacationAPI.createVacation(data)
     .then((response) => {
       $('#content-container').html(storyPhotoTemplate(response))
+      $('#section-alerts').html('<p class="success">Trip Details Saved Successfully</p>')
     })
     .catch(console.error)
 }
@@ -25,6 +26,7 @@ const onSaveStory = function (event) {
     .catch(console.error)
 }
 const sendToSendToTrip = function (event) {
+  $('#section-alerts').html('')
   const vacationId = event.target.dataset.vacationid
   updateEvents.sendToTrip(vacationId)
 }
