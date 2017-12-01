@@ -26,7 +26,7 @@
 <form id='add-story'>
   <input type='hidden' name='story[vacation_id]' value={{vacation.id}}>
   <label>Title</label><br>
-  <input id='story-title-field' type=text name=story[title]><br>
+  <input id='story-title-field' type=text name=story[title] required='true'><br>
   <label>Content</label><br>
   <textarea id='story-content-field' type=text style='white-space: pre-wrap;' name=story[content] rows="10" cols="50" required='true'></textarea><br>
   <button type='submit' type="button">
