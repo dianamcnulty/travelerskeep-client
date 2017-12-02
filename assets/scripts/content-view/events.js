@@ -30,7 +30,7 @@ const showStory = function (event) {
   const storyId = event.target.dataset.id
   storyAPI.getOneStory(storyId)
     .then(response => {
-      $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
+      $('#highlighted-content').html('<h3>' + response.story.title + "</h3><br><p style='white-space:pre-wrap;' class='story'>" + response.story.content + '</p><br><a id="go-edit-story" data-id="' + response.story.id + '">edit story</a>')
     })
 }
 const showImage = function (event) {

@@ -4,6 +4,8 @@ const addPhotoSuccess = function (caption) {
   $('#photo-container').append('<li>' + caption + '</li><br>')
   $('#choose-label').text('Choose Another File')
   $('#caption').val('')
+  $('#img').val('')
+  $('#done-warn').text('')
 }
 const addStorySuccess = function (vacation) {
   const title = vacation.story.title
@@ -11,6 +13,7 @@ const addStorySuccess = function (vacation) {
   $('#story-container').append('<li>' + title + '</li><br>')
   $('#story-title-field').val('')
   $('#story-content-field').val('')
+  $('#done-warn').text('')
 }
 module.exports = {
   addPhotoSuccess,

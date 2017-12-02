@@ -31,7 +31,7 @@
     </div>
 {{else if vacation.stories}}
   <h3>{{vacation.stories.0.title}}</h3><br>
-  <p class='story'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
+  <p class='story' style='white-space: pre-wrap;'>{{vacation.stories.0.content}}</p><br><a id="go-edit-story" data-id={{vacation.story.0.id}}>edit story</a>
   {{else}}
   <h3>This is Where You Keep Your Memories</h3>
   <p>Remember all the good times you had in {{vacation.country}} in {{vacation.year}}? Add photos and stories to this Adventure, so you can view them here.</p>

@@ -10,11 +10,11 @@
   <fieldset>
     <input id='vacationID' type='hidden' name='photo[vacation_id]' value={{vacation.id}}>
     <!-- <label id="choose-label button">Choose a File</label> -->
-    <input id='img' type="file" class="form-control-file" name="photo[img]" id="photo-input" style='background:none;'>
+    <input id='img' type="file" class="form-control-file" name="photo[img]" style='background:none;'>
 
     <label>Caption</label>
       <input id='caption' type="text" name="photo[caption]" required='true'>
-    <input type="submit" name="submit" value="Upload" class='button'>
+    <input type="submit" name="submit" value="Save Photo" class='button'>
   </fieldset>
 </form>
 <hr>
@@ -26,19 +26,21 @@
 <form id='add-story'>
   <input type='hidden' name='story[vacation_id]' value={{vacation.id}}>
   <label>Title</label><br>
-  <input id='story-title-field' type=text name=story[title]><br>
+  <input id='story-title-field' type=text name=story[title] required='true'><br>
   <label>Content</label><br>
-  <textarea id='story-content-field' type=text name=story[content] rows="10" cols="50" required='true'></textarea><br>
+  <textarea id='story-content-field' type=text style='white-space: pre-wrap;' name=story[content] rows="10" cols="50" required='true'></textarea><br>
   <button type='submit' type="button">
-  Add Story
+  Save Story
   </button>
 </form>
 <hr>
+<p id='done-warn' class='warning'></p>
 <button id='skip' data-vacationid={{vacation.id}} type="button">
-Skip This Part
+Skip This Step
 </button>
 <button id='done' data-vacationid={{vacation.id}} type="button">
 Done
 </button>
+<p id='done-warn' class='warning'></p>
 </div>
 </div>
