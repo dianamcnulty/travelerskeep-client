@@ -47,13 +47,22 @@ const showStateField = function (event) {
     $('.select-state').val('')
   }
 }
+const done = function (event) {
+  if ($('#img').val() || $('#caption').val() || $('#story-title-field').val() || $('#story-content-field').val()) {
+    $('#done-warn').hide()
+    $('#done-warn').text('You have unsaved changes. Please save your changes, or select "Skip This Step" to discard them')
+    $('#done-warn').fadeIn(200)
+  } else {
+    sendToSendToTrip(event)
+  }
+}
 const newVacationHandlers = function () {
   $('.add-input').val('')
   $('#new-nav').on('click', mapEvents.goToNewVacation)
   $(document).on('submit', '#add-vacation-form', onCreateVacation)
   $(document).on('click', '#cancel-new-vacation', mapEvents.backToMap)
   $(document).on('submit', '#add-story', onSaveStory)
-  $(document).on('click', '#done', sendToSendToTrip)
+  $(document).on('click', '#done', done)
   $(document).on('click', '#skip', sendToSendToTrip)
   $(document).on('submit', '#photo-form', photoAPI.createPhoto)
   $(document).on('change', '#select-country', showStateField)
