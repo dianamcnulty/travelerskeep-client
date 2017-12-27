@@ -4,10 +4,10 @@
 	background:transparent;
   border: 1px black solid;
 	min-height:20px;
-  max-height: 95px;
+  max-height: 95%;
   white-space: nowrap;
-  overflow-y: scroll;
-  width:88%;
+  overflow-x: scroll;
+  max-width:88%;
   display:inline-block;
   margin:auto;
 }
@@ -46,4 +46,13 @@
 
 .rg-image-nav a:hover{
 	opacity:0.8;
+}
+@media screen and (max-width: 510px) {
+  .rg-image-wrapper{
+    max-width: 100%;
+    margin:auto;
+  }
+  .scroll-arrow{
+    display: none;
+  }
 }
