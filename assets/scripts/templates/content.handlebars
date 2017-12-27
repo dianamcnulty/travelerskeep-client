@@ -12,7 +12,8 @@
     <div class="rg-image-wrapper">
 			<div class="rg-image-nav">
        {{#each vacation.photos as |photo|}}
-          <img class='thumb' style='height:70px;' data-url={{photo.img}} data-caption='{{photo.caption}}'  alt={{photo.caption}} src={{photo.img}}>
+          <img class='thumb' style='height:70px;' data-url={{photo.img}}
+          data-id={{photo.id}}  data-caption='{{photo.caption}}'  alt='{{photo.caption}}' src={{photo.img}}>
         {{/each}}
 		</div>
     	</div>
@@ -28,6 +29,7 @@
     <div class='center-children'>
       <img class='feature-photo'  src={{vacation.photos.0.img}}>
       <p class='caption'>{{vacation.photos.0.caption}}</p>
+      <a class='warning' id='delete-photo' data-toggle="modal" data-target="#delete-photo-modal" data-id='{{vacation.photos.0.id}}' data-tripid={{vacation.id}}>Delete this Photo</a>
     </div>
 {{else if vacation.stories}}
   <h3>{{vacation.stories.0.title}}</h3><br>

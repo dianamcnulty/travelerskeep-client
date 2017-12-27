@@ -46,8 +46,18 @@ const getAllPhotos = function (vacationId) {
     }
   })
 }
+const deletePhoto = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/photos/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   createPhoto,
-  getAllPhotos
+  getAllPhotos,
+  deletePhoto
 }

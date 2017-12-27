@@ -77,6 +77,27 @@
           </div>
         </div>
       </div>
+<!-- end delete vacation modal -->
+<!-- delete photo modal-->
+      <div class="modal fade" id="delete-photo-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="deleteModalLabel">Delete this Photo?</h3>
+              <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class='delete-modal-alert'>Are you sure you want to delete this Photo?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="nevermind" data-dismiss="modal">Nevermind.</button>
+              <button id='delete-photo-cnfrm' type="button" class="danger-button" data-dismiss="modal">Delete it!</button>
+            </div>
+          </div>
+        </div>
+      </div>
 <!-- end delete modal -->
 <!-- password modal -->
 <div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
@@ -109,7 +130,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="deleteModalLabel">Delete your Adventure?</h3>
+        <h3 class="modal-title" id="deleteModalLabel">Delete your Story?</h3>
         <button type="button" class="close nevermind" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

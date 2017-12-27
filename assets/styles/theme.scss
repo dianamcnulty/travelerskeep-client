@@ -118,7 +118,8 @@ select {
 }
 .story {
   max-height: 200px;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  white-space: pre-wrap;
 }
 .feature-photo  {
   max-height:300px;
