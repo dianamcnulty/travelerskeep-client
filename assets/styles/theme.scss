@@ -160,6 +160,34 @@ button, .button{
 .center-children {
   text-align: center;
 }
+.copyright {
+  position: fixed;
+  bottom: 0px;
+  right: 15px;
+  color: $pale-blue;
+}
+.copyright:hover {
+  color:$pale-blue;
+}
+.right-align-children {
+text-align: right;
+
+}
+.tagline{
+  position: absolute;
+  bottom: 80px;
+  margin-left:auto;
+  margin-right: auto;
+  left: 0;
+right: 0;
+  max-width:420px;
+ // margin-top: 180px;
+ padding: 25px;
+ background-color: rgba(227, 237, 239, 0.5);
+ font-size: 20px;
+ border: 1px dashed $border-dash;
+ color:$warm-brown;
+}
 @media screen and (min-width: 960px) {
     html {
         background-position-y: -100px;
@@ -176,14 +204,20 @@ button, .button{
   .sunset {
     background-position-y: 0;
   }
-}
-@media screen and (max-width: 474px) {
   .light-mobile {
     background-color: rgba(227, 237, 239, 0.8);
+    padding: 10px;
+    border: 1px dashed $border-dash;
   }
+}
+@media screen and (max-width: 474px) {
+
   .navbar-collapse.in {
-      background-color: rgba(227, 237, 239, 0.8);
-    }
+    background-color: rgba(227, 237, 239, 0.8);
+  }
+  // .tagline{
+  //  margin-top: 80px;
+  // }
 }
 @media screen and (max-width: 766px) {
   .navbar-collapse.in {
